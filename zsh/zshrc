@@ -1,0 +1,19 @@
+# source
+source ~/.config/zsh/fzf.zsh
+source ~/.config/zsh/aliases.zsh
+source ~/.config/zsh/prompt_color.zsh
+source ~/.zinit/bin/zinit.zsh
+source ~/.config/zsh/plugins.zsh
+source ~/.config/zsh/arch-zsh-config
+
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='nvim'
+fi
+
+# bat
+# export BAT_THEME="gruvbox"
+export BAT_STYLE="changes"
+

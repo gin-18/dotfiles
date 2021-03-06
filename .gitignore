@@ -1,0 +1,16 @@
+/autostart/*
+/chromium/*
+/coc/*
+/dconf/*
+/fcitx/*
+/fcitx5/*
+/flameshot/*
+/glib-2.0/*
+/google-chrome/*
+/gtk-3.0/*
+/ibus/*
+/microsoft-edge-dev/*
+/pulse/*
+/VirtualBox/*
+mimeapps.list
+QtProject.conf

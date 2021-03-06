@@ -1,0 +1,527 @@
+" 打开高亮
+syntax on
+
+" Auto load for first time uses
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" set-part
+" ----------------------------------------
+" 设置插件的匹配度
+set nocompatible
+filetype on
+filetype indent on 
+filetype plugin on
+filetype plugin indent on
+
+" 设置tab键的缩进格数
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+
+" 设置光标距离顶部和底部的固定位置
+set scrolloff=5
+
+" 设置编码格式为utf-8
+set encoding=utf-8
+
+" 当窗口不能完整显示一行内容时，会换行显示
+set wrap
+
+" 显示行号
+set number
+
+" 以相对位置的方式显示行号
+set relativenumber
+
+" 光标所在的行高亮
+set cursorline
+hi CursorLine cterm=NONE ctermbg=104 ctermfg=15 guibg=104 guifg=15
+
+" 光标所在的列高亮
+"set cursorcolumn
+"hi CursorColumn cterm=NONE ctermfg=242 ctermfg=White guibg=DarkRed guifg=White
+
+" 在命令模式下输入字符时，按下tab键会提示可选项，类似linux终端的自动补全
+set wildmenu
+
+" 高亮搜索结果
+set hlsearch
+
+" 在搜索状态下输入字符时，显示高亮（边输入边高亮）
+set incsearch
+
+" 忽略大小写
+set ignorecase
+
+" 智能大小写
+set smartcase
+
+" 将折叠方式设置为manual
+set foldmethod=manual
+
+" let-part
+" ----------------------------------------
+" 解决不同终端下vim的配色问题
+let &t_ut=''
+
+" 设置leader键为空格键
+let mapleader=" "
+
+" 设置不同模式下显示不同的光标样式
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+
+exec "nohlsearch"
+
+" 设置重新进入文件时，光标留在上次退出的地方
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" noremap-part
+" ----------------------------------------
+noremap K 5k
+noremap J 5j
+noremap H 0
+noremap L $
+noremap n nzz
+noremap N Nzz
+noremap <LEADER>nh :nohlsearch<CR>
+
+" map-part
+" ----------------------------------------
+map Q :q<CR>
+map s :w<CR>
+map S :wq<CR>
+
+" 打开一个新的标签页
+map nt :tabe<CR>
+
+" 切换分屏
+map <M-w>k <C-w>k
+map <M-w>j <C-w>j
+map <M-w>h <C-w>h
+map <M-w>l <C-w>l
+
+" 打开拼写检查
+map <LEADER>sc :set spell!<CR>
+
+" 上下分屏，并且光标在上屏幕
+map <LEADER><UP> :set nosplitbelow<CR>:split<CR>
+" 上下分屏，并且光标在下屏幕
+map <LEADER><DOWN> :set splitbelow<CR>:split<CR>
+" 左右分屏，并且光标在左屏幕
+map <LEADER><LEFT> :set nosplitright<CR>:vsplit<CR>
+" 左右分屏，并且光标在右屏幕
+map <LEADER><RIGHT> :set splitright<CR>:vsplit<CR>
+
+" 改变分屏的大小
+map <S-UP> :res +5<CR>
+map <S-DOWN> :res -5<CR>
+map <S-LEFT> :vertical resize+5<CR>
+map <S-RIGHT> :vertical resize-5<CR>
+
+" 按两下空格键''并且进入插入模式
+map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
+
+" inoremapp-part
+" ----------------------------------------
+inoremap ' ''<Esc>i
+inoremap " ""<Esc>i
+inoremap ( ()<Esc>i
+inoremap [ []<Esc>i
+inoremap < <><Esc>i
+inoremap { {<CR>}<Esc>O<Tab>
+
+" 颜色设置
+" ----------------------------------------
+" "设置注释的颜色
+hi Comment ctermfg=103
+
+" "修改字符串的颜色
+hi Sting ctermfg=189
+
+" "修改类型的颜色
+hi Type ctermfg=141
+
+" "设置数字的颜色
+hi Number ctermfg=62
+
+" "修改常量的颜色
+hi Constant ctermfg=147
+
+" "修改声明的颜色
+hi Statement ctermfg=153
+
+" "修改关键字的颜色
+hi Identifier ctermfg=183
+
+" "修改匹配括号的颜色
+hi MatchParen ctermfg=202
+
+" "修改行号的颜色
+highlight LineNr ctermfg=177
+
+" "修改当前行号的颜色
+highlight CursorLineNr ctermfg=214
+
+" "修改光标所在行的颜色
+" "highlight CursorLine ctermfg=015
+
+" "设置自动补全窗口的颜色
+highlight Pmenu ctermfg=7 ctermbg=60
+highlight PmenuSel ctermfg=15 ctermbg=103
+
+" 状态栏
+" ----------------------------------------
+" "设置状态栏在倒数第二行
+set laststatus=2
+" "设置状态栏 
+set statusline=%<%1*[B-%n]%*
+" TOT is an abbreviation for total
+set statusline+=%2*[TOT:%{Buf_total_num()}]%*
+set statusline+=%3*\ %{File_size(@%)}\ %*
+set statusline+=%4*\ %F\ %*
+set statusline+=%5*\ %{NearestMethodOrFunction()}
+set statusline+=%=%6*\ %m%r%y\ \|\%*
+set statusline+=%7*\ %{&ff}\ \|\ %{\"\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"\ \|\"}\ %-14.(row:%l/%L,col:%c%V%)\ %*
+set statusline+=%8*\ %P\ %*
+
+" default bg for statusline is 236 in space-vim-dark
+" hi User5 cterm=None ctermfg=208 ctermbg=238
+hi User1 cterm=None ctermfg=232 ctermbg=179
+hi User2 cterm=None ctermfg=214 ctermbg=241
+hi User3 cterm=None ctermfg=251 ctermbg=238
+hi User4 cterm=None ctermfg=147 ctermbg=237
+hi User5 cterm=None ctermfg=153 ctermbg=236
+hi User6 cterm=None ctermfg=246 ctermbg=237
+hi User7 cterm=None ctermfg=250 ctermbg=238
+hi User8 cterm=None ctermfg=249 ctermbg=240
+
+function! Buf_total_num()
+    return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+endfunction
+function! File_size(f)
+    let l:size = getfsize(expand(a:f))
+    if l:size == 0 || l:size == -1 || l:size == -2
+        return ''
+    endif
+    if l:size < 1024
+        return l:size.' bytes'
+    elseif l:size < 1024*1024
+        return printf('%.1f', l:size/1024.0).'k'
+    elseif l:size < 1024*1024*1024
+        return printf('%.1f', l:size/1024.0/1024.0) . 'm'
+    else
+        return printf('%.1f', l:size/1024.0/1024.0/1024.0) . 'g'
+    endif
+endfunction
+
+" 美化标签栏
+" ----------------------------------------
+" "定义颜色
+hi TabLine cterm=None ctermfg=147 ctermbg=239
+hi TabLineSel cterm=None ctermfg=015 ctermbg=237
+hi TabLineFill cterm=None ctermfg=217 ctermbg=239
+
+set tabline=%!MyTabLine()  " custom tab pages line
+function MyTabLine()
+    let s = '' " complete tabline goes here
+    " loop through each tab page
+    for t in range(tabpagenr('$'))
+        " set highlight
+        if t + 1 == tabpagenr()
+            let s .= '%#TabLineSel#'
+        else
+            let s .= '%#TabLine#'
+        endif
+        " set the tab page number (for mouse clicks)
+        let s .= '%' . (t + 1) . 'T'
+        let s .= ' '
+        " set page number string
+        let s .= t + 1 . ' '
+        " get buffer names and statuses
+        let n = ''      "temp string for buffer names while we loop and check buftype
+        let m = 0       " &modified counter
+        let bc = len(tabpagebuflist(t + 1))     "counter to avoid last ' '
+        " loop through each buffer in a tab
+        for b in tabpagebuflist(t + 1)
+            " buffer types: quickfix gets a [Q], help gets [H]{base fname}
+            " others get 1dir/2dir/3dir/fname shortened to 1/2/3/fname
+            if getbufvar( b, "&buftype" ) == 'help'
+                let n .= '[H]' . fnamemodify( bufname(b), ':t:s/.txt$//' )
+            elseif getbufvar( b, "&buftype" ) == 'quickfix'
+                let n .= '[Q]'
+            else
+                let n .= pathshorten(bufname(b))
+            endif
+            " check and ++ tab's &modified count
+            if getbufvar( b, "&modified" )
+                let m += 1
+            endif
+            " no final ' ' added...formatting looks better done later
+            if bc > 1
+                let n .= ' '
+            endif
+            let bc -= 1
+        endfor
+        " add modified label [n+] where n pages in tab are modified
+        if m > 0
+            let s .= '[' . m . '+]'
+        endif
+        " select the highlighting for the buffer names
+        " my default highlighting only underlines the active tab
+        " buffer names.
+        if t + 1 == tabpagenr()
+            let s .= '%#TabLineSel#'
+        else
+            let s .= '%#TabLine#'
+        endif
+        " add buffer names
+        if n == ''
+            let s.= '[No Name]'
+        else
+            let s .= n
+        endif
+        " switch to no underlining and add final space to buffer list
+        let s .= ' '
+    endfor
+    " after the last tab fill with TabLineFill and reset tab page nr
+    let s .= '%#TabLineFill#%T'
+    " right-align the label to close the current tab page
+    if tabpagenr('$') > 1
+        let s .= '%=%#TabLineFill#'
+    endif
+    return s
+endfunction
+
+" plug-part
+" ----------------------------------------
+" 插件管理器
+call plug#begin('~/.vim/plugged')
+
+" markdown预览插件
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+
+" markdown表格模板插件
+Plug 'dhruvasagar/vim-table-mode'
+
+" coc.nvim
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" fzf.vim
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" vista.vim
+Plug 'liuchengxu/vista.vim'
+
+" vim-snippets代码片段库
+" Plug 'honza/vim-snippets'
+
+call plug#end()
+
+" 插件配置
+" coc.nvim
+" ----------------------------------------
+" 自动加载coc插件
+let g:coc_global_extensions = [
+		\ 'coc-html',
+		\ 'coc-css',
+		\ 'coc-tsserver',
+		\ 'coc-vetur',
+		\ 'coc-xml',
+		\ 'coc-yaml',
+		\ 'coc-json',
+		\ 'coc-emmet',
+		\ 'coc-eslint',
+		\ 'coc-vimlsp',
+		\ 'coc-snippets',
+		\ 'coc-prettier']
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=160
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Highlight the symbol and its references when holding the cursor.
+" 高亮相同的单词
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Use <c-space> to trigger completion.
+" 修改默认设置为按下ctrl+o调用自动补全（nvim）
+inoremap <silent><expr> <C-o> coc#refresh()
+
+" GoTo code navigation.
+" 跳转到函数所在的位置
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+" 按下车键选中补全的代码不会默认换行
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+" 跳转到代码有误的地方
+nmap <silent> <LEADER>- <Plug>(coc-diagnostic-prev)
+nmap <silent> <LEADER>= <Plug>(coc-diagnostic-next)
+
+" Use <LEADER>k to show documentation in preview window.
+" 显示文档
+nnoremap <silent> <LEADER>k :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" netrw
+" ----------------------------------------
+noremap <LEADER>nn :Lexplore<CR>
+let g:netrw_hide = 1
+let g:netrw_altv = 1
+let g:netrw_alto = 0
+let g:netrw_banner = 0
+let g:netrw_winsize = 20
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 3
+
+" fzf
+" ----------------------------------------
+" "搜索文件
+noremap <silent> <LEADER>ff :Files<CR>
+" "搜索标记
+noremap <silent> <LEADER>fm :Marks<CR>
+" "搜索历史文件
+noremap <silent> <LEADER>fh :History<CR>
+" "搜索Buffers
+noremap <silent> <LEADER>fb :Buffers<CR>
+" "搜索历史命令
+noremap <silent> <LEADER>sh :History:<CR>
+" "some config
+" Default fzf layout
+" - Popup window
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+" - down / up / left / right
+let g:fzf_layout = { 'down': '40%' }
+
+let g:fzf_commits_log_options = '--graph --color=always --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+" Override statusline as you like
+function! s:fzf_statusline()
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
+
+" vista.vim
+" ----------------------------------------
+noremap <silent> <LEADER>vv :Vista!!<CR>
+noremap <silent> <LEADER>vf :Vista finder<CR>
+
+let g:vista_cursor_delay = 000
+let g:vista_disable_statusline = 1
+let g:vista_sidebar_width = 40
+let g:vista_highlight_whole_line = 1
+let g:vista_fzf_preview = ['right:60%']
+
+function! NearestMethodOrFunction() abort
+  return get(b:, 'vista_nearest_method_or_function', '')
+endfunction
+
+" By default vista.vim never run if you don't call it explicitly.
+" If you want to show the nearest function in your statusline automatically,
+" you can add the following line to your vimrc
+autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
+
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'readonly', 'filename', 'modified', 'method' ] ]
+      \ },
+      \ 'component_function': {
+      \   'method': 'NearestMethodOrFunction'
+      \ },
+      \ }
+
+
+" markdown-preview.nvim
+" ----------------------------------------
+" "自动启动(默认为0，改为1为开启自动启动)
+let g:mkdp_auto_start = 0
+" "自动刷新(默认为0,改为1为开启自动刷新)
+let g:mkdp_refresh_slow = 1
+" "设置的预览浏览器
+let g:mkdp_browser = 'chromium'
+" "快捷键
+nmap <LEADER>mp <Plug>MarkdownPreview
+nmap <LEADER>ps <Plug>MarkdownPreviewStop
+nmap <LEADER>pt <Plug>MarkdownPreviewToggle
+
+" vim-table-mode
+" ----------------------------------------
+" "打开vim-table-mode
+map <LEADER>tm :TableModeToggle<CR>
+
+function! s:isAtStartOfLine(mapping)
+  let text_before_cursor = getline('.')[0 : col('.')-1]
+  let mapping_pattern = '\V' . escape(a:mapping, '\')
+  let comment_pattern = '\V' . escape(substitute(&l:commentstring, '%s.*$', '', ''), '\')
+  return (text_before_cursor =~? '^' . ('\v(' . comment_pattern . '\v)?') . '\s*\v' . mapping_pattern . '\v$')
+endfunction
+
+inoreabbrev <expr> <bar><bar>
+          \ <SID>isAtStartOfLine('\|\|') ?
+          \ '<c-o>:TableModeEnable<cr><bar><space><bar><left><left>' : '<bar><bar>'
+inoreabbrev <expr> __
+          \ <SID>isAtStartOfLine('__') ?
+          \ '<c-o>:silent! TableModeDisable<cr>' : '__'
+
+" 引入markdown-snippets.vim
+" ----------------------------------------
+source ~/.config/nvim/markdown-snippets.vim
+
