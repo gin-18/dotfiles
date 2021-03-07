@@ -1,12 +1,12 @@
 # Font Settings
 font:
   normal:
-    family: DejaVu Sans Mono
+    family: source code pro
   bold:
-    family: DejaVu Sans Mono
+    family: source code pro
   italic:
-    family: DejaVu Sans Mono
-  size: 9
+    family: source code pro
+  size: 8
 
 # Opacity Setting
 background_opacity: 0.80
