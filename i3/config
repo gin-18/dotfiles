@@ -48,6 +48,9 @@ floating_modifier $mod
 # start a terminal
 bindsym $mod+Return exec alacritty
 
+# start a tmux
+bindsym $mod+Shift+Return exec alacritty -e tmux
+
 # start picom
 exec_always --no-startup-id exec picom -b
 
@@ -107,10 +110,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod1+Shift+h move left
-bindsym $mod1+Shift+j move down
-bindsym $mod1+Shift+k move up
-bindsym $mod1+Shift+l move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -226,38 +229,52 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     # 拆解工作区名（隐藏前面的1:2:3:……）
-    #strip_workspace_numbers yes
+    # strip_workspace_numbers yes
+	# output eDP1
 
     font pango:Noto Sans 13
-		status_command i3status -c $HOME/.config/i3/i3status/i3status.config
+	status_command i3status -c $HOME/.config/i3/i3status/i3status.config
 
-		# -t选项可以使i3bar透明
-    i3bar_command i3bar -t
+	# -t选项可以使i3bar透明
+	# i3bar_command i3bar -t
 		
-		# 显示系统托盘
-		# tray_output primary
+	# 显示系统托盘
+	# tray_output eDP1
+	# tray_output primary
 
     # 隐藏i3bar
-		# mode hide
-		# modifier $mod
+	# mode hide
+	# modifier $mod
 
     # 定义分隔符∥
     separator_symbol "  "
 
     # height 28
-    position top
+    # position top
 
     colors {
-        background #69696969
-        statusline #FFFFFF
-        separator  #D0C4DE
+        background #C0C0C0
+        statusline #000000
+        separator  #696969
         # 工作区颜色         边框    背景    文字
-        focused_workspace  #69696969 #C0C0C0C0 #FFFFFF
-        active_workspace   #FFFFFF00 #FFFFFF00 #FFFFFF
-        inactive_workspace #69696969 #69696969 #FFFFFF
-        urgent_workspace   #69696969 #11111100 #FFFFFF
-        binding_mode       #99990000 #99000000 #FFFFFF
+        focused_workspace  #C0C0C0 #808080 #FFFFFF
+        active_workspace   #FFFFFF #FFFFFF #000000
+        inactive_workspace #C0C0C0 #C0C0C0 #000000
+        urgent_workspace   #696969 #111111 #FFFFFF
+        binding_mode       #4682B4 #4682B4 #FFFFFF
     }
+	# i3bar -t color
+    # colors {
+    #     background #69696969
+    #     statusline #FFFFFF
+    #     separator  #D0C4DE
+    #     # 工作区颜色         边框    背景    文字
+    #     focused_workspace  #69696969 #C0C0C0C0 #FFFFFF
+    #     active_workspace   #FFFFFF00 #FFFFFF00 #FFFFFF
+    #     inactive_workspace #69696969 #69696969 #FFFFFF
+    #     urgent_workspace   #69696969 #11111100 #FFFFFF
+    #     binding_mode       #99990000 #99000000 #FFFFFF
+    # }
 }
 
 #########################
@@ -266,7 +283,7 @@ bar {
 #
 ##########################
 # Set inner/outer gaps
-gaps inner 8
+gaps inner 6
 # gaps outer 0
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>

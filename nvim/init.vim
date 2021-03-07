@@ -17,7 +17,7 @@ endif
 " -------------------------------------------------------------------
 " 打开高亮
 syntax on
-" 
+" 不兼容vi 
 set nocompatible
 filetype on
 filetype indent on 
@@ -74,7 +74,7 @@ autocmd InsertEnter * if exists('b:fcitx') && b:fcitx == 2 | call system(s:fcitx
 
 " -------------------------------------------------------------------
 "
-" key-mapping
+" keyMapping
 "
 " -------------------------------------------------------------------
 map Q :q<CR>
@@ -86,11 +86,6 @@ map nt :tabe<CR>
 map <Tab>l gt
 " 切换到上一个标签页
 map <Tab>h gT
-" 切换分屏
-map <M-w>k <C-w>k
-map <M-w>j <C-w>j
-map <M-w>h <C-w>h
-map <M-w>l <C-w>l
 " 打开拼写检查
 map <LEADER>sc :set spell!<CR>
 " 上下分屏，并且光标在上屏幕
@@ -122,6 +117,11 @@ noremap <LEADER>co :!chromium %&<CR><CR>
 noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
+" 切换分屏
+nnoremap <C-k> <C-w>k
+nnoremap <C-j> <C-w>j
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
 
 " inoremapp
 " -------------------------------------------------------------------
@@ -132,42 +132,46 @@ inoremap [ []<Esc>i
 inoremap < <><Esc>i
 inoremap { {}<Esc>i
 
+" tnoremap
+" -------------------------------------------------------------------
+tnoremap <M-Q> <C-\><C-n>
+
 " -------------------------------------------------------------------
 "
 " colorscheme
 "
 " -------------------------------------------------------------------
 " 设置注释的颜色
-hi Comment ctermfg=103
+hi Comment cterm=NONE ctermfg=103 ctermbg=000
 " 修改字符串的颜色
-hi Sting ctermfg=189
+hi Sting cterm=NONE ctermfg=189 ctermbg=000
 " 修改类型的颜色
-hi Type ctermfg=141
+hi Type cterm=NONE ctermfg=141 ctermbg=000
 " 设置数字的颜色
-hi Number ctermfg=62
+hi Number cterm=NONE ctermfg=62 ctermbg=000
 " 修改常量的颜色
-hi Constant ctermfg=147
+hi Constant cterm=NONE ctermfg=147 ctermbg=000
 " 修改声明的颜色
-hi Statement ctermfg=153
+hi Statement cterm=NONE ctermfg=153 ctermbg=000
 " 修改关键字的颜色
-hi Identifier ctermfg=183
+hi Identifier cterm=NONE ctermfg=183 ctermbg=000
 " 修改匹配括号的颜色
-hi MatchParen ctermfg=202
+hi MatchParen cterm=NONE ctermfg=202 ctermbg=000
 " 修改行号的颜色
-hi LineNr ctermfg=177
+hi LineNr cterm=NONE ctermfg=177 ctermbg=000
 " 修改当前行号的颜色
-hi CursorLineNr ctermfg=214
+hi CursorLineNr cterm=NONE ctermfg=214 ctermbg=000
 " 修改窗口边框的颜色
-hi VertSplit ctermfg=236 ctermbg=238
+hi VertSplit cterm=NONE ctermfg=236 ctermbg=238
 " 修改光标所在行的颜色
-hi CursorLine cterm=NONE ctermbg=104 ctermfg=15 guibg=104 guifg=15
+hi CursorLine cterm=NONE ctermbg=104 ctermfg=15
 " 设置自动补全窗口的颜色
-hi Pmenu ctermfg=7 ctermbg=60
-hi PmenuSel ctermfg=15 ctermbg=103
+hi Pmenu cterm=NONE ctermfg=7 ctermbg=60
+hi PmenuSel cterm=NONE ctermfg=15 ctermbg=103
 " some
-hi NonText ctermfg=235
-hi Normal ctermfg=255 ctermbg=235
-hi SignColumn ctermbg=235
+hi NonText cterm=NONE ctermfg=235 ctermbg=000
+hi Normal cterm=NONE ctermfg=255 ctermbg=235
+hi SignColumn cterm=NONE ctermfg=000 ctermbg=235
 
 " -------------------------------------------------------------------
 "
@@ -325,6 +329,9 @@ Plug 'junegunn/fzf.vim'
 
 " vista.vim
 Plug 'liuchengxu/vista.vim'
+
+" vim-terminal-help
+Plug 'skywind3000/vim-terminal-help'
 
 " vim-snippets代码片段库
 " Plug 'honza/vim-snippets'
@@ -535,9 +542,13 @@ inoreabbrev <expr> __
 nmap <LEADER>mp <Plug>MarkdownPreview
 nmap <LEADER>ps <Plug>MarkdownPreviewStop
 
-" "自动启动(默认为0，改为1为开启自动启动)
+" 自动启动(默认为0，改为1为开启自动启动)
 let g:mkdp_auto_start = 0
-" "自动刷新(默认为0,改为1为开启自动刷新)
+" 自动刷新(默认为0,改为1为开启自动刷新)
 let g:mkdp_refresh_slow = 1
-" "设置的预览浏览器
+" 设置的预览浏览器
 let g:mkdp_browser = 'chromium'
+
+" source markdown-snippets.vim
+" -------------------------------------------------------------------
+source ~/.config/nvim/markdown-snippets.vim
