@@ -74,8 +74,11 @@ exec_always --no-startup-id feh --randomize --bg-fill ~/some/pictures/My-千千/
 bindsym $mod+d exec --no-startup-id "rofi -show drun"
 
 # i3lock
-# bindsym $mod+l exec --no-startup-id "i3lock -i ~/some/chromium-download/gaitubao_My-千千-003_png.png"
-bindsym $mod+l exec --no-startup-id "i3lock -c b0e0e6"
+bindsym $mod+l exec --no-startup-id "i3lock -i ~/some/flameshot/2021-03-09_20-01.png"
+
+# xbacklight
+bindsym $mod+Up exec --no-startup-id "xbacklight -inc 1"
+bindsym $mod+Down exec --no-startup-id "xbacklight -dec 1"
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
@@ -104,10 +107,10 @@ bindsym $mod1+k focus up
 bindsym $mod1+l focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+# bindsym $mod+Left focus left
+# bindsym $mod+Down focus down
+# bindsym $mod+Up focus up
+# bindsym $mod+Right focus right
 
 # move focused window
 bindsym $mod+Shift+h move left
@@ -116,10 +119,10 @@ bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+# bindsym $mod+Shift+Left move left
+# bindsym $mod+Shift+Down move down
+# bindsym $mod+Shift+Up move up
+# bindsym $mod+Shift+Right move right
 
 # split in horizontal orientation
 bindsym $mod+h split h
@@ -184,12 +187,17 @@ bindsym $mod1+8 move container to workspace number $ws8
 bindsym $mod1+9 move container to workspace number $ws9
 bindsym $mod1+0 move container to workspace number $ws10
 
+# assign
 assign [class="Chromium"] $ws2
 assign [class="Microsoft-edge-dev"] $ws2
 assign [class="Vmware"] $ws3
 assign [class="VirtualBox"] $ws4
 assign [class="robo3t"] $ws5
 assign [class="Gimp"] $ws6
+
+# for_window floating settings
+for_window [class="VirtualBox Manager"] floating enable
+for_window [class="Lxappearance"] floating enable
 
 # reload the configuration file
 bindsym $mod1+c reload

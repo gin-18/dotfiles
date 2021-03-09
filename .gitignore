@@ -12,6 +12,8 @@
 /microsoft-edge-dev/*
 /pulse/*
 /VirtualBox/*
+/GIMP/*
+/gtk-2.0/*
 mimeapps.list
 QtProject.conf
 .netrwhist

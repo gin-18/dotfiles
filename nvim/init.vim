@@ -47,6 +47,8 @@ set incsearch
 set ignorecase
 " 智能大小写
 set smartcase
+" 自动切换当前工作路径
+set autochdir
 " 将折叠方式设置为manual
 set foldmethod=manual
 " 光标所在的行高亮
@@ -236,7 +238,6 @@ function MyTabLine()
     return s
 endfunction
 
-
 " -------------------------------------------------------------------
 "
 " statusline
@@ -358,7 +359,8 @@ let g:coc_global_extensions = [
 		\ 'coc-emmet',
 		\ 'coc-eslint',
 		\ 'coc-vimlsp',
-		\ 'coc-snippets']
+		\ 'coc-snippets',
+		\ 'coc-prettier']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
