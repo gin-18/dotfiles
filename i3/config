@@ -45,7 +45,10 @@ floating_modifier $mod
 # start chromium
 # bindsym $mod+c exec chromium
 
-# start a terminal
+# start a alacritty
+# bindsym $mod+Return exec alacritty
+
+# start st
 bindsym $mod+Return exec alacritty
 
 # start a tmux
@@ -71,10 +74,10 @@ bindsym $mod1+f exec --no-startup-id "flameshot gui"
 exec_always --no-startup-id feh --randomize --bg-fill ~/some/pictures/My-千千/*
 
 # rofi
-bindsym $mod+d exec --no-startup-id "rofi -show drun"
+bindsym $mod+p exec --no-startup-id "rofi -show drun"
 
 # i3lock
-bindsym $mod+l exec --no-startup-id "i3lock -i ~/some/flameshot/2021-03-09_20-01.png"
+bindsym $mod+l exec --no-startup-id "i3lock -i ~/some/pictures/i3lock/i3lock.png"
 
 # xbacklight
 bindsym $mod+Up exec --no-startup-id "xbacklight -inc 1"

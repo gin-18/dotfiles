@@ -119,12 +119,7 @@ noremap <LEADER>co :!chromium %&<CR><CR>
 noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
-" 切换分屏
-nnoremap <C-k> <C-w>k
-nnoremap <C-j> <C-w>j
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
+noremap <M-p> "+p
 " inoremapp
 " -------------------------------------------------------------------
 inoremap ' ''<Esc>i
@@ -133,6 +128,10 @@ inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap < <><Esc>i
 inoremap { {}<Esc>i
+
+" vnoremap
+" -------------------------------------------------------------------
+vnoremap Y "+y
 
 " tnoremap
 " -------------------------------------------------------------------

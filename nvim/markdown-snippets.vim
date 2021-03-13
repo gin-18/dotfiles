@@ -14,19 +14,19 @@
 " "六级标题
  autocmd Filetype markdown inoremap ,6 ######<Space><Enter><++><Esc>kA
 " "斜体文本
- autocmd Filetype markdown inoremap ,i ** <++><Esc>F*hi
+ autocmd Filetype markdown inoremap ,i **<++><Esc>F*hi
 " "粗体文本
- autocmd Filetype markdown inoremap ,s **** <++><Esc>F*hi
+ autocmd Filetype markdown inoremap ,s ****<++><Esc>F*hi
 " "粗斜体文本
- autocmd Filetype markdown inoremap ,si ****** <++><Esc>F*hi
+ autocmd Filetype markdown inoremap ,si ******<++><Esc>F*hi
 " "下划线
- autocmd Filetype markdown inoremap ,st ~~~~ <++><Esc>F~hi
+ autocmd Filetype markdown inoremap ,st ~~~~<++><Esc>F~hi
 " "高亮
- autocmd Filetype markdown inoremap ,h ==== <++><Esc>F=hi
+ autocmd Filetype markdown inoremap ,h ====<++><Esc>F=hi
 " "插入图片
- autocmd Filetype markdown inoremap ,p ![](<++>) <++><Esc>F[a
+ autocmd Filetype markdown inoremap ,p ![](<++>)<++><Esc>F[a
 " "插入链接
- autocmd Filetype markdown inoremap ,a [](<++>) <++><Esc>F[a
+ autocmd Filetype markdown inoremap ,a [](<++>)<++><Esc>F[a
 " "插入分隔线
  autocmd Filetype markdown inoremap ,n ---<Enter><Enter>
 " "插入代码块
