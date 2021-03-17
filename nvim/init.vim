@@ -170,9 +170,9 @@ hi CursorLine cterm=NONE ctermbg=104 ctermfg=15
 hi Pmenu cterm=NONE ctermfg=7 ctermbg=60
 hi PmenuSel cterm=NONE ctermfg=15 ctermbg=103
 " some
-hi NonText cterm=NONE ctermfg=235 ctermbg=000
-hi Normal cterm=NONE ctermfg=255 ctermbg=235
-hi SignColumn cterm=NONE ctermfg=000 ctermbg=235
+hi NonText cterm=NONE ctermfg=000 ctermbg=000
+hi Normal cterm=NONE ctermfg=255 ctermbg=000
+hi SignColumn cterm=NONE ctermfg=000 ctermbg=000
 
 " -------------------------------------------------------------------
 "
@@ -255,9 +255,9 @@ set statusline+=%=%7*\ %m%r%y\ \|\%*
 set statusline+=%8*\ %{&ff}\ \|\ %{\"\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"\ \|\"}\ %-14.(row:%l/%L,col:%c%V%)\ %*
 set statusline+=%9*\ %P\ %*
 
-hi User1 cterm=None ctermfg=232 ctermbg=179
+hi User1 cterm=None ctermfg=232 ctermbg=214
 hi User2 cterm=None ctermfg=214 ctermbg=241
-hi User3 cterm=None ctermfg=146 ctermbg=239
+hi User3 cterm=None ctermfg=193 ctermbg=239
 hi User4 cterm=None ctermfg=147 ctermbg=237
 hi User5 cterm=None ctermfg=251 ctermbg=238
 hi User6 cterm=None ctermfg=153 ctermbg=236

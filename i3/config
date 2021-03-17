@@ -49,10 +49,10 @@ floating_modifier $mod
 # bindsym $mod+Return exec alacritty
 
 # start st
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec st
 
 # start a tmux
-bindsym $mod+Shift+Return exec alacritty -e tmux
+bindsym $mod+Shift+Return exec st -e tmux
 
 # start picom
 exec_always --no-startup-id exec picom -b
