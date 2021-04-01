@@ -55,9 +55,8 @@ set foldmethod=manual
 set cursorline
 " 窗口在下方打开
 set splitbelow
-" 光标所在的列高亮
-"set cursorcolumn
-"hi CursorColumn cterm=NONE ctermfg=242 ctermfg=White guibg=DarkRed guifg=White
+" 启用gui配色
+set termguicolors
 " 解决不同终端下vim的配色问题
 let &t_ut=''
 " 设置leader键为空格键
@@ -143,36 +142,36 @@ tnoremap <M-Q> <C-\><C-n>
 "
 " -------------------------------------------------------------------
 " 设置注释的颜色
-hi Comment cterm=NONE ctermfg=103 ctermbg=000
+hi Comment cterm=NONE ctermfg=103 ctermbg=000 gui=NONE guifg=#8787af
 " 修改字符串的颜色
-hi Sting cterm=NONE ctermfg=189 ctermbg=000
+hi Sting cterm=NONE ctermfg=189 ctermbg=000 gui=NONE guifg=#d7d7ff guibg=#000000
 " 修改类型的颜色
-hi Type cterm=NONE ctermfg=141 ctermbg=000
+hi Type cterm=NONE ctermfg=141 ctermbg=000 gui=NONE guifg=#af87ff guibg=#000000
 " 设置数字的颜色
-hi Number cterm=NONE ctermfg=62 ctermbg=000
+hi Number cterm=NONE ctermfg=062 ctermbg=000 gui=NONE guifg=#5f5fd7 guibg=#000000
 " 修改常量的颜色
-hi Constant cterm=NONE ctermfg=147 ctermbg=000
+hi Constant cterm=NONE ctermfg=147 ctermbg=000 gui=NONE guifg=#afafff guibg=#000000
 " 修改声明的颜色
-hi Statement cterm=NONE ctermfg=153 ctermbg=000
+hi Statement cterm=NONE ctermfg=153 ctermbg=000 gui=NONE guifg=#afd7d7
 " 修改关键字的颜色
-hi Identifier cterm=NONE ctermfg=183 ctermbg=000
+hi Identifier cterm=NONE ctermfg=183 ctermbg=000 gui=NONE guifg=#d7afff guibg=#000000
 " 修改匹配括号的颜色
-hi MatchParen cterm=NONE ctermfg=202 ctermbg=000
+hi MatchParen cterm=NONE ctermfg=202 ctermbg=000 gui=NONE guifg=#93c5dc guibg=#def0f2
 " 修改行号的颜色
-hi LineNr cterm=NONE ctermfg=177 ctermbg=000
+hi LineNr cterm=NONE ctermfg=177 ctermbg=000 gui=NONE guifg=#d787ff guibg=#000000
 " 修改当前行号的颜色
-hi CursorLineNr cterm=NONE ctermfg=214 ctermbg=000
+hi CursorLineNr cterm=NONE ctermfg=214 ctermbg=000 gui=NONE guifg=#ffaf00 guibg=#000000
 " 修改窗口边框的颜色
-hi VertSplit cterm=NONE ctermfg=236 ctermbg=238
+hi VertSplit cterm=NONE ctermfg=236 ctermbg=238 gui=NONE guifg=#303030 guibg=#444444
 " 修改光标所在行的颜色
-hi CursorLine cterm=NONE ctermbg=104 ctermfg=15
+hi CursorLine cterm=NONE ctermfg=015 ctermbg=104 gui=NONE guifg=#ffffff guibg=#8787d7
 " 设置自动补全窗口的颜色
-hi Pmenu cterm=NONE ctermfg=7 ctermbg=60
-hi PmenuSel cterm=NONE ctermfg=15 ctermbg=103
+hi Pmenu cterm=NONE ctermfg=007 ctermbg=060 gui=NONE guifg=#ffffff guibg=#5f5f87
+hi PmenuSel cterm=NONE ctermfg=015 ctermbg=103 gui=NONE guifg=#ffffff guibg=#8787af
 " some
-hi NonText cterm=NONE ctermfg=000 ctermbg=000
-hi Normal cterm=NONE ctermfg=255 ctermbg=000
-hi SignColumn cterm=NONE ctermfg=000 ctermbg=000
+hi NonText cterm=NONE ctermfg=000 ctermbg=000 gui=NONE guifg=#000000 guibg=#000000
+hi Normal cterm=NONE ctermfg=255 ctermbg=000 gui=NONE guifg=#eeeeee guibg=#000000
+hi SignColumn cterm=NONE ctermfg=000 ctermbg=000 gui=NONE guifg=#000000 guibg=#000000
 
 " -------------------------------------------------------------------
 "
@@ -180,9 +179,9 @@ hi SignColumn cterm=NONE ctermfg=000 ctermbg=000
 "
 " -------------------------------------------------------------------
 " 定义颜色
-hi TabLine cterm=None ctermfg=147 ctermbg=239
-hi TabLineSel cterm=None ctermfg=015 ctermbg=237
-hi TabLineFill cterm=None ctermfg=217 ctermbg=239
+hi TabLine cterm=NONE ctermfg=147 ctermbg=239 gui=NONE guifg=#afafff guibg=#4e4e4e
+hi TabLineSel cterm=NONE ctermfg=015 ctermbg=237 gui=NONE guifg=#ffffff guibg=#3a3a3a
+hi TabLineFill cterm=NONE ctermfg=217 ctermbg=239 gui=NONE guifg=#ffafaf guibg=#4e4e4e
 
 set tabline=%!MyTabLine()
 function MyTabLine()
@@ -255,15 +254,15 @@ set statusline+=%=%7*\ %m%r%y\ \|\%*
 set statusline+=%8*\ %{&ff}\ \|\ %{\"\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"\ \|\"}\ %-14.(row:%l/%L,col:%c%V%)\ %*
 set statusline+=%9*\ %P\ %*
 
-hi User1 cterm=None ctermfg=232 ctermbg=214
-hi User2 cterm=None ctermfg=214 ctermbg=241
-hi User3 cterm=None ctermfg=193 ctermbg=239
-hi User4 cterm=None ctermfg=147 ctermbg=237
-hi User5 cterm=None ctermfg=251 ctermbg=238
-hi User6 cterm=None ctermfg=153 ctermbg=236
-hi User7 cterm=None ctermfg=246 ctermbg=237
-hi User8 cterm=None ctermfg=250 ctermbg=238
-hi User9 cterm=None ctermfg=249 ctermbg=240
+hi User1 cterm=None ctermfg=232 ctermbg=214 gui=NONE guifg=#080808 guibg=#ffaf00
+hi User2 cterm=None ctermfg=214 ctermbg=241 gui=NONE guifg=#ffaf00 guibg=#626262
+hi User3 cterm=None ctermfg=193 ctermbg=239 gui=NONE guifg=#d7ffaf guibg=#4e4e4e
+hi User4 cterm=None ctermfg=147 ctermbg=237 gui=NONE guifg=#afafff guibg=#3a3a3a
+hi User5 cterm=None ctermfg=251 ctermbg=238 gui=NONE guifg=#c6c6c6 guibg=#444444
+hi User6 cterm=None ctermfg=153 ctermbg=236 gui=NONE guifg=#afd7ff guibg=#303030
+hi User7 cterm=None ctermfg=246 ctermbg=237 gui=NONE guifg=#949494 guibg=#3a3a3a
+hi User8 cterm=None ctermfg=250 ctermbg=238 gui=NONE guifg=#bcbcbc guibg=#444444
+hi User9 cterm=None ctermfg=249 ctermbg=240 gui=NONE guifg=#b2b2b2 guibg=#585858
 
 function! Buf_total_num()
     return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
@@ -359,6 +358,7 @@ let g:coc_global_extensions = [
 		\ 'coc-eslint',
 		\ 'coc-vimlsp',
 		\ 'coc-snippets',
+		\ 'coc-highlight',
 		\ 'coc-prettier']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
@@ -464,10 +464,9 @@ endfunction
 
 " Override statusline as you like
 function! s:fzf_statusline()
-  highlight fzf1 ctermfg=161 ctermbg=251
-  highlight fzf2 ctermfg=23 ctermbg=251
-  highlight fzf3 ctermfg=237 ctermbg=251
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+  highlight fzf1 cterm=NONE ctermfg=161 ctermbg=251 gui=NONE guifg=#d7005f guibg=#c6c6c6
+  highlight fzf2 cterm=NONE ctermfg=23 ctermbg=251  gui=NONE guifg=#005f5f guibg=#c6c6c6
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf1#f
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
