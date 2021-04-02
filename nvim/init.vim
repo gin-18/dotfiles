@@ -9,7 +9,6 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-
 " -------------------------------------------------------------------
 "
 " vim-init
@@ -19,20 +18,22 @@ endif
 syntax on
 " 不兼容vi 
 set nocompatible
+" 识别文件类型filetype 
 filetype on
 filetype indent on 
 filetype plugin on
 filetype plugin indent on
 " 设置tab键的缩进格数
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 " 设置光标距离顶部和底部的固定位置
 set scrolloff=5
 " 设置编码格式为utf-8
 set encoding=utf-8
 " 当窗口不能完整显示一行内容时，会换行显示
 set wrap
+set linebreak
 " 显示行号
 set number
 " 以相对位置的方式显示行号
@@ -78,35 +79,11 @@ autocmd InsertEnter * if exists('b:fcitx') && b:fcitx == 2 | call system(s:fcitx
 " keyMapping
 "
 " -------------------------------------------------------------------
-map Q :q<CR>
-map s :w<CR>
-map S :wq<CR>
-" 打开一个新的标签页
-map nt :tabe<CR>
-" 切换到下一个标签页
-map <Tab>l gt
-" 切换到上一个标签页
-map <Tab>h gT
-" 打开拼写检查
-map <LEADER>sc :set spell!<CR>
-" 上下分屏，并且光标在上屏幕
-map <LEADER><UP> :set nosplitbelow<CR>:split<CR>
-" 上下分屏，并且光标在下屏幕
-map <LEADER><DOWN> :set splitbelow<CR>:split<CR>
-" 左右分屏，并且光标在左屏幕
-map <LEADER><LEFT> :set nosplitright<CR>:vsplit<CR>
-" 左右分屏，并且光标在右屏幕
-map <LEADER><RIGHT> :set splitright<CR>:vsplit<CR>
-" 改变分屏的大小
-map <S-UP> :res +5<CR>
-map <S-DOWN> :res -5<CR>
-map <S-LEFT> :vertical resize+5<CR>
-map <S-RIGHT> :vertical resize-5<CR>
-" 按两下空格键''并且进入插入模式
-map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
-
 " noremap
 " -------------------------------------------------------------------
+noremap Q :q<CR>
+noremap s :w<CR>
+noremap S :wq<CR>
 noremap K 5k
 noremap J 5j
 noremap H 0
@@ -119,8 +96,31 @@ noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
 noremap <M-p> "+p
+" 打开一个新的标签页
+noremap nt :tabe<CR>
+" 切换到下一个标签页
+noremap <Tab>l gt
+" 切换到上一个标签页
+noremap <Tab>h gT
+" 打开拼写检查
+noremap <LEADER>sc :set spell!<CR>
+" 上下分屏，并且光标在上屏幕
+noremap <LEADER><UP> :set nosplitbelow<CR>:split<CR>
+" 上下分屏，并且光标在下屏幕
+noremap <LEADER><DOWN> :set splitbelow<CR>:split<CR>
+" 左右分屏，并且光标在左屏幕
+noremap <LEADER><LEFT> :set nosplitright<CR>:vsplit<CR>
+" 左右分屏，并且光标在右屏幕
+noremap <LEADER><RIGHT> :set splitright<CR>:vsplit<CR>
+" 改变分屏的大小
+noremap <S-UP> :res +5<CR>
+noremap <S-DOWN> :res -5<CR>
+noremap <S-LEFT> :vertical resize+5<CR>
+noremap <S-RIGHT> :vertical resize-5<CR>
+" 按两下空格键''并且进入插入模式
+noremap <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
-" inoremapp
+" inoremap
 " -------------------------------------------------------------------
 inoremap ' ''<Esc>i
 inoremap " ""<Esc>i
@@ -128,6 +128,7 @@ inoremap ( ()<Esc>i
 inoremap [ []<Esc>i
 inoremap < <><Esc>i
 inoremap { {}<Esc>i
+inoremap <C-]> <++>
 
 " vnoremap
 " -------------------------------------------------------------------
@@ -136,6 +137,14 @@ vnoremap Y "+y
 " tnoremap
 " -------------------------------------------------------------------
 tnoremap <M-Q> <C-\><C-n>
+
+" -------------------------------------------------------------------
+"
+" autocmd
+"
+" -------------------------------------------------------------------
+autocmd WinEnter * setlocal cursorline
+autocmd WinLeave * setlocal nocursorline
 
 " -------------------------------------------------------------------
 "
@@ -179,14 +188,15 @@ hi Special gui=bold guifg=#689986
 hi NonText gui=bold guifg=#121212 guibg=#121212
 hi Normal gui=bold guifg=#ffffff guibg=#121212
 hi SignColumn gui=bold guifg=#121212 guibg=#121212
+hi Search gui=bold guifg=#ffffff guibg=#005dab
+hi StatusLineNC guifg=reverse guibg=reverse
 hi ErrorMsg gui=bold guifg=#ffffff guibg=#c7161e
 hi WarningMsg gui=bold guifg=#ffffff guibg=#ebb684
 hi Directory gui=bold guifg=#b2cccb
 hi MsgArea gui=bold guifg=#89b0d1
 hi CocErrorSign gui=bold guifg=#c7161e
-hi StatusLineNC gui=bold 
-hi TermCursorNC gui=bold 
-hi NormalNC gui=bold
+hi CocWarningSign gui=bold guifg=#ff922b
+hi CocInfoSign gui=bold guifg=#fab005
 hi javaScriptCommentSkip gui=bold
 hi javaScriptParens gui=bold
 hi javaScriptValue gui=bold
@@ -377,6 +387,7 @@ let g:coc_global_extensions = [
 		\ 'coc-vimlsp',
 		\ 'coc-snippets',
 		\ 'coc-highlight',
+		\ 'coc-spell-checker',
 		\ 'coc-prettier']
 
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
@@ -498,7 +509,7 @@ let g:netrw_hide = 1
 let g:netrw_altv = 1
 let g:netrw_alto = 0
 let g:netrw_banner = 0
-let g:netrw_winsize = 20
+let g:netrw_winsize = 22
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 3
 
@@ -566,6 +577,17 @@ let g:mkdp_auto_start = 0
 let g:mkdp_refresh_slow = 1
 " 设置的预览浏览器
 let g:mkdp_browser = 'chromium'
+
+" 找到当前光标下的字符属于那个highlight-group
+" -------------------------------------------------------------------
+noremap <LEADER>si :call <SID>SynStack()<CR>
+
+function! <SID>SynStack()
+	if !exists("*synstack")
+		return
+	endif
+	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
 
 " source markdown-snippets.vim
 " -------------------------------------------------------------------

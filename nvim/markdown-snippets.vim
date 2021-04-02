@@ -18,9 +18,9 @@
 " "粗体文本
  autocmd Filetype markdown inoremap ,s ****<++><Esc>F*hi
 " "粗斜体文本
- autocmd Filetype markdown inoremap ,si ******<++><Esc>F*hi
+" autocmd Filetype markdown inoremap ,si ******<++><Esc>F*hi
 " "下划线
- autocmd Filetype markdown inoremap ,st ~~~~<++><Esc>F~hi
+" autocmd Filetype markdown inoremap ,st ~~~~<++><Esc>F~hi
 " "高亮
  autocmd Filetype markdown inoremap ,h ====<++><Esc>F=hi
 " "插入图片
