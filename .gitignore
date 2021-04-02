@@ -16,7 +16,7 @@
 /gtk-2.0/*
 /retroarch/*
 /htop/*
-/lazygit/*
+/lazygit/state.yml
 mpd.db
 mpd.log
 mpdstate

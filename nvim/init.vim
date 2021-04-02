@@ -90,12 +90,13 @@ noremap H 0
 noremap L $
 noremap n nzz
 noremap N Nzz
+noremap <M-p> "+p
 noremap <LEADER>nh :nohlsearch<CR>
 noremap <LEADER>co :!chromium %&<CR><CR>
 noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
-noremap <M-p> "+p
+noremap <LEADER>lz :tabe<CR>:-tabmove<CR>:term lazygit<CR>
 " 打开一个新的标签页
 noremap nt :tabe<CR>
 " 切换到下一个标签页
