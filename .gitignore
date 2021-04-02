@@ -14,10 +14,13 @@
 /VirtualBox/*
 /GIMP/*
 /gtk-2.0/*
+/retroarch/*
+/htop/*
+/lazygit/*
 mpd.db
 mpd.log
 mpdstate
-sticker.spl
+sticker.sql
 error.log
 mimeapps.list
 QtProject.conf
