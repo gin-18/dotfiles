@@ -2,17 +2,17 @@
 " "替换操作
  autocmd Filetype markdown inoremap ,f <Esc>/<++><CR>:nohlsearch<CR>c4l
 " "一级标题
- autocmd Filetype markdown inoremap ,1 #<Space><Enter><++><Esc>kA
+ autocmd Filetype markdown inoremap ,1 #<Space><Enter><Enter><++><Esc>2kA
 " "二级标题
- autocmd Filetype markdown inoremap ,2 ##<Space><Enter><++><Esc>kA
+ autocmd Filetype markdown inoremap ,2 ##<Space><Enter><Enter><++><Esc>2kA
 " "三级标题
- autocmd Filetype markdown inoremap ,3 ###<Space><Enter><++><Esc>kA
+ autocmd Filetype markdown inoremap ,3 ###<Space><Enter><Enter><++><Esc>2kA
 " "四级标题
- autocmd Filetype markdown inoremap ,4 ####<Space><Enter><++><Esc>kA
+ autocmd Filetype markdown inoremap ,4 ####<Space><Enter><Enter><++><Esc>2kA
 " "五级标题
- autocmd Filetype markdown inoremap ,5 #####<Space><Enter><++><Esc>kA
+ autocmd Filetype markdown inoremap ,5 #####<Space><Enter><Enter><++><Esc>2kA
 " "六级标题
- autocmd Filetype markdown inoremap ,6 ######<Space><Enter><++><Esc>kA
+ autocmd Filetype markdown inoremap ,6 ######<Space><Enter><Enter><++><Esc>2kA
 " "斜体文本
  autocmd Filetype markdown inoremap ,i **<++><Esc>F*hi
 " "粗体文本

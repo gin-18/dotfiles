@@ -148,7 +148,7 @@ autocmd WinLeave * setlocal nocursorline
 "
 " -------------------------------------------------------------------
 " 设置可视模式的颜色
-hi Visual gui=bold guibg=#7c8ea6
+hi Visual gui=bold guifg=#ffffff guibg=#7c8ea6
 " 设置注释的颜色
 hi Comment gui=bold guifg=#524e4d
 " 修改字符串的颜色
@@ -174,7 +174,7 @@ hi VertSplit gui=bold guifg=#303030 guibg=#444444
 " 修改光标所在行的颜色
 hi CursorLine gui=bold guifg=#ffffff guibg=#5976ae
 " 设置自动补全窗口的颜色
-hi Pmenu gui=bold guifg=#def0f2 guibg=#537591
+hi Pmenu gui=bold guifg=#e6e6fa guibg=#537591
 hi PmenuSel gui=bold guifg=#537591 guibg=#b0dbd4
 hi PmenuSbar gui=bold guifg=#6683af guibg=#6683af
 " some
@@ -190,9 +190,6 @@ hi ErrorMsg gui=bold guifg=#ffffff guibg=#c7161e
 hi WarningMsg gui=bold guifg=#ffffff guibg=#ebb684
 hi Directory gui=bold guifg=#b2cccb
 hi MsgArea gui=bold guifg=#89b0d1
-hi CocErrorSign gui=bold guifg=#c7161e
-hi CocWarningSign gui=bold guifg=#ff922b
-hi CocInfoSign gui=bold guifg=#fab005
 hi javaScriptCommentSkip gui=bold
 hi javaScriptParens gui=bold
 hi javaScriptValue gui=bold
@@ -428,10 +425,10 @@ endif
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> <LEADER>gd <Plug>(coc-definition)
+nmap <silent> <LEADER>gd <Plug>(coc-definition)
 
 " 跳转到代码有误的地方
-nnoremap <silent> <LEADER>gr <Plug>(coc-diagnostic-prev)
+nmap <silent> <LEADER>gr <Plug>(coc-diagnostic-prev)
 
 " Use <LEADER>k to show documentation in preview window.
 nnoremap <silent> <LEADER>k :call <SID>show_documentation()<CR>
@@ -515,7 +512,7 @@ let g:lightline = {
 
 " vim-table-mode
 " -------------------------------------------------------------------
-noremap <silent> <LEADER>tm :TableModeToggle<CR>
+noremap <LEADER>tm :TableModeToggle<CR>
 
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -533,8 +530,7 @@ inoreabbrev <expr> __
 
 " markdown-preview.nvim
 " -------------------------------------------------------------------
-nnoremap <LEADER>mp <Plug>MarkdownPreview
-nnoremap <LEADER>ps <Plug>MarkdownPreviewStop
+nnoremap <LEADER>mp :MarkdownPreview<CR>
 
 " 自动启动(默认为0，改为1为开启自动启动)
 let g:mkdp_auto_start = 0
