@@ -97,6 +97,7 @@ noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
 noremap <M-g> :new<CR>:term lazygit<CR>i
+noremap <M-t> :new<CR>:term<CR>i
 " 打开一个新的标签页
 noremap nt :tabe<CR>
 " 切换到下一个标签页
@@ -169,7 +170,7 @@ hi LineNr gui=bold guifg=#def0f2
 " 修改当前行号的颜色
 hi CursorLineNr gui=bold guifg=#a3ce7e
 " 修改匹配括号的颜色
-hi MatchParen gui=bold guifg=#000000 guibg=#38416a
+hi MatchParen gui=bold guifg=#436378 guibg=#6bbc79
 " 修改窗口边框的颜色
 hi VertSplit gui=bold guifg=#303030 guibg=#444444
 " 修改光标所在行的颜色
@@ -351,14 +352,14 @@ Plug 'junegunn/fzf.vim'
 " vista.vim
 Plug 'liuchengxu/vista.vim'
 
-" vim-terminal-help
-Plug 'skywind3000/vim-terminal-help'
-
 " rnvimr
 Plug 'kevinhwang91/rnvimr'
 
 " vim-startify
 Plug 'mhinz/vim-startify'
+
+" vim-terminal-help
+" Plug 'skywind3000/vim-terminal-help'
 
 " vim-snippets代码片段库
 " Plug 'honza/vim-snippets'
