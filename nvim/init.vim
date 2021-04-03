@@ -329,7 +329,7 @@ endfunction
 
 " -------------------------------------------------------------------
 "
-" plugin
+" plugins
 "
 " -------------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
@@ -355,6 +355,9 @@ Plug 'skywind3000/vim-terminal-help'
 
 " rnvimr
 Plug 'kevinhwang91/rnvimr'
+
+" vim-startify
+Plug 'mhinz/vim-startify'
 
 " vim-snippets代码片段库
 " Plug 'honza/vim-snippets'
