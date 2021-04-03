@@ -96,6 +96,7 @@ noremap <LEADER>co :!chromium %&<CR><CR>
 noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
+noremap <M-g> :new<CR>:term lazygit<CR>i
 " 打开一个新的标签页
 noremap nt :tabe<CR>
 " 切换到下一个标签页
@@ -541,33 +542,6 @@ let g:mkdp_auto_start = 0
 let g:mkdp_refresh_slow = 1
 " 设置的预览浏览器
 let g:mkdp_browser = 'chromium'
-
-" open lazygit in float window
-" -------------------------------------------------------------------
-noremap <M-g> :call OpenFloatingWin()<CR>:term lazygit<CR>i
-
-function! OpenFloatingWin()
-	let height = &lines - 3
-	let width = float2nr(&columns - (&columns * 2 / 10))
-	let col = float2nr((&columns - width) / 2)
-
-	let opts = {
-		\ 'relative': 'editor',
-		\ 'row': height * 0.1,
-		\ 'col': col * 1.4,
-		\ 'width': width * 9 / 10,
-		\ 'height': height * 8 / 10
-	  \ }
-
-	let buf = nvim_create_buf(v:false, v:true)
-	let win = nvim_open_win(buf, v:true, opts)
-
-	call setwinvar(win, '&winhl', 'Normal:Pmenu')
-
-	setlocal
-				\ nonumber
-				\ norelativenumber
-endfunction
 
 " 找到当前光标下的字符属于那个highlight-group
 " -------------------------------------------------------------------
