@@ -104,14 +104,10 @@ noremap <Tab>l gt
 noremap <Tab>h gT
 " 打开拼写检查
 noremap <LEADER>sc :set spell!<CR>
-" 上下分屏，并且光标在上屏幕
-noremap <LEADER><UP> :set nosplitbelow<CR>:split<CR>
 " 上下分屏，并且光标在下屏幕
 noremap <LEADER><DOWN> :set splitbelow<CR>:split<CR>
 " 左右分屏，并且光标在左屏幕
 noremap <LEADER><LEFT> :set nosplitright<CR>:vsplit<CR>
-" 左右分屏，并且光标在右屏幕
-noremap <LEADER><RIGHT> :set splitright<CR>:vsplit<CR>
 " 改变分屏的大小
 noremap <S-UP> :res +5<CR>
 noremap <S-DOWN> :res -5<CR>
@@ -172,7 +168,7 @@ hi LineNr gui=bold guifg=#def0f2
 " 修改当前行号的颜色
 hi CursorLineNr gui=bold guifg=#a3ce7e
 " 修改匹配括号的颜色
-hi MatchParen gui=bold guifg=#93c5dc guibg=#38416a
+hi MatchParen gui=bold guifg=#000000 guibg=#38416a
 " 修改窗口边框的颜色
 hi VertSplit gui=bold guifg=#303030 guibg=#444444
 " 修改光标所在行的颜色
@@ -185,9 +181,9 @@ hi PmenuSbar gui=bold guifg=#6683af guibg=#6683af
 hi Title gui=bold guifg=#bba0cb
 hi PreProc gui=bold guifg=#f6c5b4
 hi Special gui=bold guifg=#689986
-hi NonText gui=bold guifg=#121212 guibg=#121212
-hi Normal gui=bold guifg=#ffffff guibg=#121212
-hi SignColumn gui=bold guifg=#121212 guibg=#121212
+hi NonText gui=bold guifg=#000000 guibg=#000000
+hi Normal gui=bold guifg=#ffffff guibg=#000000
+hi SignColumn gui=bold guifg=#000000 guibg=#000000
 hi Search gui=bold guifg=#ffffff guibg=#005dab
 hi StatusLineNC guifg=reverse guibg=reverse
 hi ErrorMsg gui=bold guifg=#ffffff guibg=#c7161e
@@ -360,6 +356,9 @@ Plug 'liuchengxu/vista.vim'
 " vim-terminal-help
 Plug 'skywind3000/vim-terminal-help'
 
+" rnvimr
+Plug 'kevinhwang91/rnvimr'
+
 " vim-snippets代码片段库
 " Plug 'honza/vim-snippets'
 
@@ -387,24 +386,14 @@ let g:coc_global_extensions = [
 		\ 'coc-vimlsp',
 		\ 'coc-snippets',
 		\ 'coc-highlight',
-		\ 'coc-spell-checker',
 		\ 'coc-prettier']
 
-" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-" delays and poor user experience.
 set updatetime=160
-
-" Don't pass messages to |ins-completion-menu|.
 set shortmess+=c
 
 " Highlight the symbol and its references when holding the cursor.
-" 高亮相同的单词
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -416,9 +405,6 @@ function! s:check_back_space() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-" Make <CR> auto-select the first completion item and notify coc.nvim to
-" format on enter, <cr> could be remapped by other vim plugin
-" 按下车键选中补全的代码不会默认换行
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
                               \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
@@ -432,10 +418,7 @@ function! s:show_documentation()
   endif
 endfunction
 
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
   set signcolumn=number
 else
   set signcolumn=yes
@@ -445,19 +428,20 @@ endif
 " nmap <silent> gy <Plug>(coc-type-definition)
 " nmap <silent> gi <Plug>(coc-implementation)
 " nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> <LEADER>gd <Plug>(coc-definition)
 
-" 修改默认设置为按下ctrl+o调用自动补全（nvim）
-inoremap <silent><expr> <C-o> coc#refresh()
-
-" Use `[g` and `]g` to navigate diagnostics
-" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
 " 跳转到代码有误的地方
-nmap <silent> <LEADER>gr <Plug>(coc-diagnostic-prev)
+nnoremap <silent> <LEADER>gr <Plug>(coc-diagnostic-prev)
 
 " Use <LEADER>k to show documentation in preview window.
 nnoremap <silent> <LEADER>k :call <SID>show_documentation()<CR>
 
+" rnvimr
+" -------------------------------------------------------------------
+nnoremap <silent> <M-r> :RnvimrToggle<CR>
+
+" Make Ranger to be hidden after picking a file
+let g:rnvimr_enable_picker = 1
 
 " fzf
 " -------------------------------------------------------------------
@@ -495,24 +479,10 @@ endfunction
 function! s:fzf_statusline()
   highlight fzf1 gui=bold guifg=#d7005f guibg=#c6c6c6
   highlight fzf2 gui=bold guifg=#005f5f guibg=#c6c6c6
-  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf1#f
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fzf
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-
-" netrw
-" -------------------------------------------------------------------
-noremap <LEADER>nn :Lexplore<CR>
-
-let g:netrw_hide = 1
-let g:netrw_altv = 1
-let g:netrw_alto = 0
-let g:netrw_banner = 0
-let g:netrw_winsize = 22
-let g:netrw_liststyle = 3
-let g:netrw_browse_split = 3
-
 
 " vista.vim
 " -------------------------------------------------------------------
@@ -530,9 +500,6 @@ function! NearestMethodOrFunction() abort
   return get(b:, 'vista_nearest_method_or_function', '')
 endfunction
 
-" By default vista.vim never run if you don't call it explicitly.
-" If you want to show the nearest function in your statusline automatically,
-" you can add the following line to your vimrc
 autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
 
 let g:lightline = {
@@ -546,10 +513,9 @@ let g:lightline = {
       \ },
       \ }
 
-
 " vim-table-mode
 " -------------------------------------------------------------------
-map <LEADER>tm :TableModeToggle<CR>
+noremap <silent> <LEADER>tm :TableModeToggle<CR>
 
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -565,11 +531,10 @@ inoreabbrev <expr> __
           \ <SID>isAtStartOfLine('__') ?
           \ '<c-o>:silent! TableModeDisable<cr>' : '__'
 
-
 " markdown-preview.nvim
 " -------------------------------------------------------------------
-nmap <LEADER>mp <Plug>MarkdownPreview
-nmap <LEADER>ps <Plug>MarkdownPreviewStop
+nnoremap <LEADER>mp <Plug>MarkdownPreview
+nnoremap <LEADER>ps <Plug>MarkdownPreviewStop
 
 " 自动启动(默认为0，改为1为开启自动启动)
 let g:mkdp_auto_start = 0
@@ -580,7 +545,7 @@ let g:mkdp_browser = 'chromium'
 
 " open lazygit in float window
 " -------------------------------------------------------------------
-noremap <LEADER>lz :call OpenFloatingWin()<CR>:term lazygit<CR>i
+noremap <M-g> :call OpenFloatingWin()<CR>:term lazygit<CR>i
 
 function! OpenFloatingWin()
 	let height = &lines - 3
