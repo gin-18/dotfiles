@@ -446,15 +446,15 @@ let g:rnvimr_enable_picker = 1
 " fzf
 " -------------------------------------------------------------------
 " 搜索文件
-noremap <silent> <LEADER>ff :Files<CR>
+noremap <silent> <M-f> :Files<CR>
 " 搜索标记
-noremap <silent> <LEADER>fm :Marks<CR>
+noremap <silent> <M-m> :Marks<CR>
 " 搜索历史文件
-noremap <silent> <LEADER>fh :History<CR>
+noremap <silent> <M-h> :History<CR>
 " 搜索Buffers
-noremap <silent> <LEADER>fb :Buffers<CR>
+noremap <silent> <M-b> :Buffers<CR>
 " 搜索历史命令
-noremap <silent> <LEADER>sh :History:<CR>
+noremap <silent> <M-c> :History:<CR>
 
 " Default fzf layout
 " - Popup window
