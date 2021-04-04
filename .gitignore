@@ -18,6 +18,7 @@
 /htop/*
 /lazygit/state.yml
 /nvim/autoload/*
+/nvim/plugged/*
 /3T/*
 /configstore/*
 /dunst/*
