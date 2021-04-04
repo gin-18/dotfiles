@@ -4,9 +4,9 @@
 "
 " -------------------------------------------------------------------
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+	!curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
 				\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	autocmd VimEnter * PlugInstall --sync | source ~/.config/nvim/init.vim
 endif
 
 " -------------------------------------------------------------------
@@ -342,10 +342,10 @@ endfunction
 call plug#begin('~/.config/nvim/plugged')
 
 " markdown预览插件
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install', 'for': ['markdown', 'vim-plug'] }
 
 " markdown表格模板插件
-Plug 'dhruvasagar/vim-table-mode'
+Plug 'dhruvasagar/vim-table-mode', { 'on': 'TableModeToggle', 'for': ['markdown', 'vim-plug'] }
 
 " coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -358,7 +358,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'liuchengxu/vista.vim'
 
 " rnvimr
-Plug 'kevinhwang91/rnvimr'
+Plug 'kevinhwang91/rnvimr', { 'on': 'RnvimrToggle' }
 
 " vim-startify
 Plug 'mhinz/vim-startify'

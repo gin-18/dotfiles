@@ -17,6 +17,13 @@
 /retroarch/*
 /htop/*
 /lazygit/state.yml
+/nvim/autoload/*
+/3T/*
+/configstore/*
+/dunst/*
+/eDEX-UI/*
+/libreoffice/*
+/ranger/plugins/*
 mpd.db
 mpd.log
 mpdstate
