@@ -378,7 +378,3 @@ function! <SID>SynStack()
 	endif
 	echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunction
-
-" source markdown-snippets.vim
-" -------------------------------------------------------------------
-source ~/.config/nvim/markdown-snippets.vim
