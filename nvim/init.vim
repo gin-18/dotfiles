@@ -16,11 +16,11 @@ endif
 " -------------------------------------------------------------------
 " 打开高亮
 syntax on
-" 不兼容vi 
+" 不兼容vi
 set nocompatible
-" 识别文件类型filetype 
+" 识别文件类型filetype
 filetype on
-filetype indent on 
+filetype indent on
 filetype plugin on
 filetype plugin indent on
 " 设置tab键的缩进格数
@@ -90,6 +90,10 @@ noremap H 0
 noremap L $
 noremap n nzz
 noremap N Nzz
+noremap <M-H> <C-w>h
+noremap <M-J> <C-w>j
+noremap <M-K> <C-w>k
+noremap <M-L> <C-w>l
 noremap <M-p> "+p
 noremap <LEADER>nh :nohlsearch<CR>
 noremap <LEADER>co :!chromium %&<CR><CR>
@@ -183,9 +187,10 @@ hi PmenuSbar gui=bold guifg=#6683af guibg=#6683af
 hi Title gui=bold guifg=#bba0cb
 hi PreProc gui=bold guifg=#f6c5b4
 hi Special gui=bold guifg=#689986
-hi NonText gui=bold guifg=#000000 guibg=#000000
-hi Normal gui=bold guifg=#ffffff guibg=#000000
-hi SignColumn gui=bold guifg=#000000 guibg=#000000
+hi Normal gui=bold guifg=#ffffff guibg=none
+hi NonText gui=bold guifg=#86a9d3 guibg=bg
+hi EndOfBuffer guifg=#303030
+hi SignColumn gui=bold guifg=#93c5dc guibg=bg
 hi Search gui=bold guifg=#ffffff guibg=#005dab
 hi StatusLineNC guifg=reverse guibg=reverse
 hi ErrorMsg gui=bold guifg=#ffffff guibg=#c7161e
@@ -361,6 +366,9 @@ Plug 'mhinz/vim-startify'
 " vim-terminal-help
 " Plug 'skywind3000/vim-terminal-help'
 
+" dashboard-nvim
+" Plug 'glepnir/dashboard-nvim'
+
 " vim-snippets代码片段库
 " Plug 'honza/vim-snippets'
 
@@ -381,7 +389,7 @@ let g:coc_global_extensions = [
 		\ 'coc-tsserver',
 		\ 'coc-vetur',
 		\ 'coc-xml',
-		\ 'coc-yaml',
+	 	\ 'coc-yaml',
 		\ 'coc-json',
 		\ 'coc-emmet',
 		\ 'coc-eslint',
