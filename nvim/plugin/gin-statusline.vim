@@ -11,7 +11,7 @@ set statusline+=%2*[TOT:%{Buf_total_num()}]%*
 set statusline+=%3*\ %{get(g:,'coc_git_status','')}%{get(b:,'coc_git_status','')}%{get(b:,'coc_git_blame','')}\ %*
 set statusline+=%4*\ %F\ %*
 set statusline+=%5*\ %{File_size(@%)}\ %*
-set statusline+=%6*\ %{NearestMethodOrFunction()}
+set statusline+=%6*\ 
 set statusline+=%=%7*\ %m%r%y\ \|\%*
 set statusline+=%8*\ %{&ff}\ \|\ %{\"\".(&fenc==\"\"?&enc:&fenc).((exists(\"+bomb\")\ &&\ &bomb)?\",B\":\"\").\"\ \|\"}\ %-14.(row:%l/%L,col:%c%V%)\ %*
 set statusline+=%9*\ %P\ %*

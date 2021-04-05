@@ -171,7 +171,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " vista.vim
-Plug 'liuchengxu/vista.vim'
+Plug 'liuchengxu/vista.vim', { 'on': ['Vista!!', 'Vista finder']}
 
 " rnvimr
 Plug 'kevinhwang91/rnvimr', { 'on': 'RnvimrToggle' }
@@ -274,7 +274,7 @@ vmap <silent> <LEADER>t <Plug>DictWVSearch
 nmap <silent> <LEADER>r <Plug>DictRSearch
 vmap <silent> <LEADER>r <Plug>DictRVSearch
 " 输入需要翻译的单词
-noremap <silent> <M-w> :DictW 
+noremap <M-w> :DictW 
 
 " rnvimr
 " -------------------------------------------------------------------
@@ -323,35 +323,6 @@ function! s:fzf_statusline()
 endfunction
 
 autocmd! User FzfStatusLine call <SID>fzf_statusline()
-
-" vista.vim
-" -------------------------------------------------------------------
-noremap <silent> <LEADER>vv :Vista!!<CR>
-noremap <silent> <LEADER>vf :Vista finder<CR>
-
-let g:vista_cursor_delay = 000
-let g:vista_disable_statusline = 1
-let g:vista_sidebar_width = 40
-let g:vista_highlight_whole_line = 1
-let g:vista_fzf_preview = ['right:60%']
-let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
-
-function! NearestMethodOrFunction() abort
-  return get(b:, 'vista_nearest_method_or_function', '')
-endfunction
-
-autocmd VimEnter * call vista#RunForNearestMethodOrFunction()
-
-let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'filename', 'modified', 'method' ] ]
-      \ },
-      \ 'component_function': {
-      \   'method': 'NearestMethodOrFunction'
-      \ },
-      \ }
 
 " vim-table-mode
 " -------------------------------------------------------------------
