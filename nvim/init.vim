@@ -105,7 +105,7 @@ noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
 " 打开一个新的标签页
-noremap nt :tabe<CR>
+noremap <LEADER>nt :tabe<CR>
 " 切换到下一个标签页
 noremap <Tab>l gt
 " 切换到上一个标签页
@@ -140,7 +140,7 @@ vnoremap Y "+y
 
 " tnoremap
 " -------------------------------------------------------------------
-tnoremap <M-Q> <C-\><C-n>
+tnoremap <M-q> <C-d>
 
 " -------------------------------------------------------------------
 "
@@ -181,6 +181,9 @@ Plug 'mhinz/vim-startify'
 
 " translate
 Plug 'iamcco/dict.vim'
+
+" nerdtree
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 
 " vim-terminal-help
 " Plug 'skywind3000/vim-terminal-help'
@@ -275,6 +278,15 @@ nmap <silent> <LEADER>r <Plug>DictRSearch
 vmap <silent> <LEADER>r <Plug>DictRVSearch
 " 输入需要翻译的单词
 noremap <M-w> :DictW 
+
+" nerdtree
+" -------------------------------------------------------------------
+noremap <M-e> :NERDTreeToggle<CR>
+
+let NERDTreeStatusline = -1
+let NERDTreeMinimalUI = 1
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
+    \ quit | endif
 
 " rnvimr
 " -------------------------------------------------------------------
