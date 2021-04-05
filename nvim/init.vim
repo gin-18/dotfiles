@@ -97,13 +97,13 @@ noremap <M-J> <C-w>j
 noremap <M-K> <C-w>k
 noremap <M-L> <C-w>l
 noremap <M-p> "+p
+noremap <M-g> :new<CR>:term lazygit<CR>i
+noremap <M-t> :new<CR>:term<CR>i
 noremap <LEADER>nh :nohlsearch<CR>
 noremap <LEADER>co :!chromium %&<CR><CR>
 noremap <LEADER>ch o<!----><Esc>F-;i
 noremap <LEADER>cc o/**/<Esc>F*i
 noremap <LEADER>cj o/*<CR>*/<Esc>O<Tab>
-noremap <M-g> :new<CR>:term lazygit<CR>i
-noremap <M-t> :new<CR>:term<CR>i
 " 打开一个新的标签页
 noremap nt :tabe<CR>
 " 切换到下一个标签页
@@ -178,6 +178,9 @@ Plug 'kevinhwang91/rnvimr', { 'on': 'RnvimrToggle' }
 
 " vim-startify
 Plug 'mhinz/vim-startify'
+
+" translate
+Plug 'iamcco/dict.vim'
 
 " vim-terminal-help
 " Plug 'skywind3000/vim-terminal-help'
@@ -262,6 +265,17 @@ nmap <silent> <LEADER>gr <Plug>(coc-diagnostic-prev)
 " Use <LEADER>k to show documentation in preview window.
 nnoremap <silent> <LEADER>k :call <SID>show_documentation()<CR>
 
+" dict
+" -------------------------------------------------------------------
+" 翻译光标下的单词并在dict窗口显示
+nmap <silent> <LEADER>t <Plug>DictWSearch
+vmap <silent> <LEADER>t <Plug>DictWVSearch
+" 翻译光标下的单词并替换翻译结果
+nmap <silent> <LEADER>r <Plug>DictRSearch
+vmap <silent> <LEADER>r <Plug>DictRVSearch
+" 输入需要翻译的单词
+noremap <silent> <M-w> :DictW 
+
 " rnvimr
 " -------------------------------------------------------------------
 nnoremap <silent> <M-r> :RnvimrToggle<CR>
@@ -341,7 +355,7 @@ let g:lightline = {
 
 " vim-table-mode
 " -------------------------------------------------------------------
-noremap <LEADER>tm :TableModeToggle<CR>
+noremap <M-T> :TableModeToggle<CR>
 
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -359,7 +373,7 @@ inoreabbrev <expr> __
 
 " markdown-preview.nvim
 " -------------------------------------------------------------------
-nnoremap <LEADER>mp :MarkdownPreview<CR>
+nnoremap <M-M> :MarkdownPreview<CR>
 
 " 自动启动(默认为0，改为1为开启自动启动)
 let g:mkdp_auto_start = 0
