@@ -180,8 +180,8 @@ Plug 'kevinhwang91/rnvimr', { 'on': 'RnvimrToggle' }
 Plug 'mhinz/vim-startify'
 
 " translate
-Plug 'iamcco/dict.vim'
-
+Plug 'iamcco/dict.vim', { 'on': ['DictW', '<Plug>DictWSearch', '<Plug>DictWVSearch', '<Plug>DictRSearch', '<Plug>DictRVSearch']}
+                                                                                      
 " nerdtree
 Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' }
 
@@ -338,7 +338,7 @@ autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 " vim-table-mode
 " -------------------------------------------------------------------
-noremap <M-T> :TableModeToggle<CR>
+noremap <silent> <M-T> :TableModeToggle<CR>
 
 function! s:isAtStartOfLine(mapping)
   let text_before_cursor = getline('.')[0 : col('.')-1]
@@ -356,7 +356,7 @@ inoreabbrev <expr> __
 
 " markdown-preview.nvim
 " -------------------------------------------------------------------
-nnoremap <M-M> :MarkdownPreview<CR>
+nnoremap <silent> <M-M> :MarkdownPreview<CR>
 
 " 自动启动(默认为0，改为1为开启自动启动)
 let g:mkdp_auto_start = 0
