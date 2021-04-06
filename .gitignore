@@ -17,8 +17,7 @@
 /retroarch/*
 /htop/*
 /lazygit/state.yml
-/nvim/autoload/*
-/nvim/plugged/*
+nvim
 /3T/*
 /configstore/*
 /dunst/*
