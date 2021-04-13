@@ -1,7 +1,7 @@
 # fzf
 
 export FZF_DEFAULT_COMMAND='
-fd --type f --hidden --follow --exclude={.git} . /home
+fd --type f --hidden --follow --exclude={.git,node_modules,build} . /home
 '
 
 export FZF_DEFAULT_OPTS='

@@ -23,7 +23,6 @@ nvim
 /dunst/*
 /eDEX-UI/*
 /libreoffice/*
-/ranger/plugins/*
 mpd.db
 mpd.log
 mpdstate
