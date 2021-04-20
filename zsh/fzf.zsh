@@ -1,6 +1,6 @@
 # fzf
 export FZF_DEFAULT_COMMAND='
-fd --type f --hidden --follow --exclude={.git,node_modules} .
+ag -l -U --hidden . /home
 '
 
 export FZF_COMPLETION_TRIGGER='\'
@@ -8,6 +8,7 @@ export FZF_COMPLETION_TRIGGER='\'
 export FZF_DEFAULT_OPTS='
 --height 50% 
 --layout=reverse 
+--preview "bat --color=always --line-range :500 {}"
 '
 
 # export FZF_DEFAULT_OPTS='
