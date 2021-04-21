@@ -1,9 +1,9 @@
 if [ -n "$BASH_VERSION" ]; then
-    export PS1='\[\e[38;5;135m\]\u\[\e[0m\]@\[\e[38;5;166m\]\h\[\e[0m\] \[\e[38;5;118m\]\w\[\e[0m\] \$ '
+    export PS1='\[\e[38;5;147m\]\u\[\e[0m\]@\[\e[38;5;183m\]\h\[\e[0m\] \[\e[38;5;225m\]\w\[\e[0m\] \$ '
 else
     if [ "$UID" -eq 0 ]; then
-        export PROMPT="%F{135}%n%f@%F{166}%m%f %F{118}%~%f %# "
+        export PROMPT="%F{147}%n%f@%F{183}%m%f %F{225}%~%f %# "
     else
-        export PROMPT="%F{135}%n%f@%F{166}%m%f %F{118}%~%f \$ "
+        export PROMPT="%F{147}%n%f@%F{183}%m%f %F{225}%~%f \$ "
     fi
 fi
