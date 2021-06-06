@@ -84,9 +84,9 @@ class Zenburn(ColorScheme):
         elif context.in_titlebar:
             attr |= bold
             if context.hostname:
-                fg = 174 if context.bad else 180
+                fg = 174 if context.bad else 183
             elif context.directory:
-                fg = 223
+                fg = 182
             elif context.tab:
                 if context.good:
                     bg = 180
