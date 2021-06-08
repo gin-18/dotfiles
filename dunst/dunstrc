@@ -1,6 +1,6 @@
 [colors]
-	background = "#2e3440"
-    frame = "#3b4252"
+	background = "#eceff4"
+    frame = "#d8dee9"
 	#foreground = "#e5e9f0"
 
 [global]
@@ -84,13 +84,13 @@
 
 [urgency_low]
     background = colors.background
-    foreground = "#81a1c1"
+    foreground = "#5e81ac"
     frame_color = colors.frame
     timeout = 5
 
 [urgency_normal]
     background = colors.background
-    foreground = "#e5e9f0"
+    foreground = "#2e3440"
     frame_color = colors.frame
     timeout = 5
 
