@@ -19,6 +19,7 @@ obs-studio
 htop
 gthumb
 xfce4
+tmux/plugins
 /lazygit/state.yml
 nvim
 3T
