@@ -20,6 +20,7 @@ htop
 gthumb
 xfce4
 tmux/plugins
+qt5ct
 /lazygit/state.yml
 nvim
 3T
@@ -33,4 +34,7 @@ sticker.sql
 error.log
 mimeapps.list
 QtProject.conf
+inkscape
+microsoft-edge
+microsoft-edge-beta
 .netrwhist

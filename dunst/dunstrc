@@ -17,8 +17,8 @@
     transparency = 0
     notification_height = 0
     separator_height = 2
-    padding = 44
-    horizontal_padding = 44
+    padding = 45
+    horizontal_padding = 45
     frame_width = 3
     corner_radius = 10
 
@@ -28,7 +28,8 @@
     idle_threshold = 120
 
     ### Text ###
-    font = FiraCode Nerd Font, Font Awesome 5 Free Solid 9
+    ### font = FiraCode Nerd Font, Font Awesome 5 Free Solid 9
+    font = FiraCode 14
     line_height = 0
 
     markup = full
@@ -56,7 +57,7 @@
     ### Icons ###
     icon_position = left
     max_icon_size = 128
-    icon_path = /usr/share/icons/Nord-Icon/48x48/status/:/usr/share/icons/Nord-Icon/48x48/devices/:/usr/share/icons/Nord-Icon/48x48/apps
+    icon_path = /usr/share/icons/Papirus/48x48/status/:/usr/share/icons/Papirus/48x48/devices/:/usr/share/icons/Papirus/48x48/apps
 
     ### History ###
     sticky_history = yes
