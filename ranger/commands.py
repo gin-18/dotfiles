@@ -61,6 +61,7 @@ class my_edit(Command):
         # content of the current directory.
         return self._tab_directory_content()
 
+
 # mkcd(mkdir+cd)
 class mkcd(Command):
     """
@@ -88,7 +89,7 @@ class mkcd(Command):
                 if s == '..' or (s.startswith('.') and not self.fm.settings['show_hidden']):
                     self.fm.cd(s)
                 else:
-                    ## We force ranger to load content before calling `scout`.
+                    # We force ranger to load content before calling `scout`.
                     self.fm.thisdir.load_content(schedule=False)
                     self.fm.execute_console('scout -ae ^{}$'.format(s))
         else:
