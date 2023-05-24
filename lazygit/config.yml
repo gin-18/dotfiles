@@ -6,18 +6,24 @@ gui:
   expandFocusedSidePanel: false
   mainPanelSplitMode: "flexible" # one of 'horizontal' | 'flexible' | 'vertical'
   theme:
-    lightTheme: false # For terminals with a light background
+    lightTheme: false 
     activeBorderColor:
-      - green
+      - "#a6d189" # Green
       - bold
     inactiveBorderColor:
-      - white
+      - "#c6d0f5" # Text
     optionsTextColor:
-      - cyan
+      - "#8caaee" # Blue
     selectedLineBgColor:
-      - default
+      - "#414559" # Surface0
     selectedRangeBgColor:
-      - blue
+      - "#414559" # Surface0
+    cherryPickedCommitBgColor:
+      - "#81c8be" # Teal
+    cherryPickedCommitFgColor:
+      - "#8caaee" # Blue
+    unstagedChangesColor:
+      - red       # rendering
   commitLength:
     show: true
   mouseEvents: true

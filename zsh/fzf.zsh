@@ -5,14 +5,8 @@ ag -l -U --hidden . /home
 
 export FZF_COMPLETION_TRIGGER='\'
 
-export FZF_DEFAULT_OPTS='
---height 50% 
---layout=reverse 
---preview "bat --color=always --line-range :500 {}"
-'
-
-# export FZF_DEFAULT_OPTS='
-# --height 50% 
-# --layout=reverse 
-# --preview "[[ $(file {}) =~ binary ]] && echo {} is a binary file || (bat --theme=gruvbox --color=always {} || highlight -0 ansi -l {} || cat {}) 2> /dev/null | head -500"
-# '
+export FZF_DEFAULT_OPTS=" \
+--color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284 \
+--color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf \
+--color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284
+"
