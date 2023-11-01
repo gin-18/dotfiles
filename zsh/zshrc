@@ -21,7 +21,7 @@ if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
 fi
 
 # bat
-# export BAT_THEME="gruvbox"
+export BAT_THEME="Catppuccin-frappe"
 export BAT_STYLE="changes"
 
 # # enable vi mode
