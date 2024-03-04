@@ -6,24 +6,19 @@ source ~/.local/share/zinit/zinit.git/zinit.zsh
 source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/yazi.zsh
 source ~/.config/zsh/arch-zsh-config
-source ~/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
+source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 
-# Preferred editor for local and remote sessions
-if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='vim'
-else
-  export EDITOR='nvim'
-fi
+# editor
+export EDITOR='nvim'
+
+# bat
+export BAT_THEME="Catppuccin-mocha"
+export BAT_STYLE="changes"
 
 # auto startx
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
-  # exec startx ~/.config/chadwm/scripts/run.sh
   exec startx
 fi
-
-# bat
-export BAT_THEME="Catppuccin-frappe"
-export BAT_STYLE="changes"
 
 # # enable vi mode
 # bindkey -v
