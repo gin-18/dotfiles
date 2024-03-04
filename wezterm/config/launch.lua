@@ -8,6 +8,7 @@ local options = {
 
 if platform.is_linux then
   options.default_prog = { '/bin/zsh' }
+  options.default_cwd = '$HOME'
 elseif platform.is_win then
   options.default_prog = { 'powershell.exe' }
   options.default_cwd =  'D:\\gin'
