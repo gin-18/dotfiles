@@ -4,6 +4,7 @@ source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/prompt_color.zsh
 source ~/.local/share/zinit/zinit.git/zinit.zsh
 source ~/.config/zsh/plugins.zsh
+source ~/.config/zsh/yazi.zsh
 source ~/.config/zsh/arch-zsh-config
 source ~/.config/zsh/catppuccin_frappe-zsh-syntax-highlighting.zsh
 
