@@ -10,8 +10,8 @@
   transparency = 0
   notification_height = 0
   separator_height = 2
-  padding = 44
-  horizontal_padding = 44
+  padding = 16
+  horizontal_padding = 16
   frame_width = 3
   corner_radius = 10
 
@@ -20,7 +20,7 @@
   idle_threshold = 120
 
   ### Text ###
-  font = FiraCode 16
+  font = FiraCode Nerd Font Mono 12
   line_height = 0
 
   markup = full
@@ -45,7 +45,7 @@
   history_length = 20
 
   ### Misc/Advanced ###
-  dmenu = /usr/bin/kitty -e fzf:
+  dmenu = /usr/bin/wezterm -e fzf:
   always_run_script = false
   title = Dunst
   class = Dunst
@@ -78,4 +78,4 @@
 [urgency_critical]
   background = "#1E1E2E"
   foreground = "#CDD6F4"
-  frame_color = "#FAB387"
+  frame_color = "#cba6f7"
