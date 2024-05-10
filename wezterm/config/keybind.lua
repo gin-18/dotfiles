@@ -5,8 +5,8 @@ local keys = {
   {
     key = 't',
     mods = 'ALT',
-    action = act.SpawnTab 'DefaultDomain',
-  }
+    action = act.SpawnTab('DefaultDomain'),
+  },
 }
 
 -- 切换 tab
