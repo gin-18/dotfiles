@@ -8,24 +8,24 @@ gui:
     theme:
         lightTheme: false
         activeBorderColor:
-          - '#cba6f7'
-          - bold
+            - '#cba6f7'
+            - bold
         inactiveBorderColor:
-          - '#a6adc8'
+            - '#a6adc8'
         optionsTextColor:
-          - '#89b4fa'
+            - '#89b4fa'
         selectedLineBgColor:
-          - '#313244'
+            - '#313244'
         cherryPickedCommitBgColor:
-          - '#45475a'
+            - '#45475a'
         cherryPickedCommitFgColor:
-          - '#cba6f7'
+            - '#cba6f7'
         unstagedChangesColor:
-          - '#f38ba8'
+            - '#f38ba8'
         defaultFgColor:
-          - '#cdd6f4'
+            - '#cdd6f4'
         searchingActiveBorderColor:
-          - '#f9e2af'
+            - '#f9e2af'
     commitLength:
         show: true
     mouseEvents: true
@@ -98,7 +98,7 @@ keybinding:
         scrollDownMain-alt1: "J" # main panel scrool down
         scrollUpMain-alt2: "<c-u>" # main panel scrool up
         scrollDownMain-alt2: "<c-d>" # main panel scrool down
-        executeCustomCommand: ":"
+        executeShellCommand: ":"
         createRebaseOptionsMenu: "m"
         pushFiles: "P"
         pullFiles: "p"
