@@ -7,6 +7,7 @@ source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/yazi.zsh
 source ~/.config/zsh/arch-zsh-config
 source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source <(fzf --zsh)
 
 # editor
 export EDITOR='nvim'
@@ -19,18 +20,3 @@ export BAT_STYLE="changes"
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx
 fi
-
-# # enable vi mode
-# bindkey -v
-# bindkey -M vicmd "H" vi-beginning-of-line
-# bindkey -M vicmd "L" vi-end-of-line
-# 
-# function zle-keymap-select {
-	# if [[ ${KEYMAP} == vicmd ]] || [[ $1 = 'block' ]]; then
-		# echo -ne '\e[1 q'
-	# elif [[ ${KEYMAP} == main ]] || [[ ${KEYMAP} == viins ]] || [[ ${KEYMAP} = '' ]] || [[ $1 = 'beam' ]]; then
-		# echo -ne '\e[5 q'
-	# fi
-# }
-# zle -N zle-keymap-select
-
