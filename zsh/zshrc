@@ -1,4 +1,3 @@
-# source
 source ~/.config/zsh/fzf.zsh
 source ~/.config/zsh/aliases.zsh
 source ~/.config/zsh/prompt_color.zsh
@@ -9,10 +8,10 @@ source ~/.config/zsh/arch-zsh-config
 source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source <(fzf --zsh)
 
-# editor
+# setup editor
 export EDITOR='nvim'
 
-# bat
+# setup for bat
 export BAT_THEME="Catppuccin-mocha"
 export BAT_STYLE="changes"
 

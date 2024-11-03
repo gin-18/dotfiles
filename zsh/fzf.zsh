@@ -4,9 +4,14 @@ export FZF_DEFAULT_OPTS=" \
 --color=marker:#b4befe,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8 \
 --color=selected-bg:#45475a \
 --multi \
+--preview 'tree -C {} | head -160'
 "
 
-# select directory at $HOME
+# select directory by default
 export FZF_DEFAULT_COMMAND="
 find $HOME \( -name node_modules -o -name .git \) -prune -o -type d
 "
+
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || bat --color=always {} || tree -C {}) 2> /dev/null | head -160'"
+export FZF_ALT_C_OPTS="--preview 'tree -C {} | head -160'"
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
