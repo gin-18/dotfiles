@@ -1,6 +1,6 @@
 source ~/.config/zsh/fzf.zsh
 source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/prompt_color.zsh
+source ~/.config/zsh/prompt.zsh
 source ~/.local/share/zinit/zinit.git/zinit.zsh
 source ~/.config/zsh/plugins.zsh
 source ~/.config/zsh/yazi.zsh
