@@ -1,10 +1,13 @@
-source ~/.config/zsh/fzf.zsh
 source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/prompt.zsh
+source ~/.config/zsh/yazi.zsh
+
+# setup for plugin
 source ~/.local/share/zinit/zinit.git/zinit.zsh
 source ~/.config/zsh/plugins.zsh
-source ~/.config/zsh/yazi.zsh
 source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+
+# setup for fzf
+source ~/.config/zsh/fzf.zsh
 source <(fzf --zsh)
 
 # setup prompt
