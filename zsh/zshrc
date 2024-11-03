@@ -7,8 +7,8 @@ source ~/.config/zsh/yazi.zsh
 source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
 source <(fzf --zsh)
 
-# setup editor
-export EDITOR='nvim'
+# setup prompt
+export PROMPT="%F{147}%n%f@%F{183}%m%f %F{225}%~%f \$ "
 
 # setup for bat
 export BAT_THEME="Catppuccin-mocha"
