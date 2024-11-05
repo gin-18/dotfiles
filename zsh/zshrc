@@ -1,18 +1,20 @@
+# setup theme
+ZSH_THEME="catppuccin"
+CATPPUCCIN_FLAVOR="mocha"
+
 # setup for plugin
 source ~/.local/share/zinit/zinit.git/zinit.zsh
-source ~/.config/zsh/plugins.zsh
-source ~/.config/zsh/catppuccin_mocha-zsh-syntax-highlighting.zsh
+source ${0:A:h}/plugins.zsh
+source ${0:A:h}/zsh-syntax-highlighting.zsh
 
 # setup for fzf
-source ~/.config/zsh/fzf.zsh
+source ${0:A:h}/fzf.zsh
 source <(fzf --zsh)
 
-source ~/.config/zsh/zsh-config.zsh
-source ~/.config/zsh/aliases.zsh
-source ~/.config/zsh/yazi.zsh
-
-# setup prompt
-export PROMPT="%F{147}%n%f@%F{183}%m%f %F{225}%~%f \$ "
+source ${0:A:h}/zsh-config.zsh
+source ${0:A:h}/aliases.zsh
+source ${0:A:h}/yazi.zsh
+source ${0:A:h}/prompt.zsh
 
 # setup for bat
 export BAT_THEME="Catppuccin-mocha"
