@@ -5,7 +5,6 @@ CATPPUCCIN_FLAVOR="mocha"
 # setup for plugin
 source ~/.local/share/zinit/zinit.git/zinit.zsh
 source ${0:A:h}/plugins.zsh
-source ${0:A:h}/zsh-syntax-highlighting.zsh
 
 # setup for fzf
 source ${0:A:h}/fzf.zsh
