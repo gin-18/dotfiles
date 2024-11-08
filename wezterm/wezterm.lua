@@ -9,11 +9,6 @@ config.keys = keys
 
 -- 设置主题
 config.color_scheme = 'catppuccin-mocha'
--- 设置字体
--- config.font = wezterm.font('FiraCode Nerd Font', {
---   weight = 'Medium',
--- })
-
 -- 设置默认启动程序
 config.default_prog = launch.default_prog
 -- 设置默认启动目录
@@ -27,6 +22,7 @@ config.window_padding = {
 }
 
 -- 设置tab
+config.enable_tab_bar = false
 config.use_fancy_tab_bar = false
 config.colors = {
   tab_bar = {
