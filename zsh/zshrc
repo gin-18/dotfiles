@@ -19,6 +19,13 @@ source ${0:A:h}/prompt.zsh
 export BAT_THEME="Catppuccin-mocha"
 export BAT_STYLE="changes"
 
+# setup for pnpm
+export PNPM_HOME="/home/gin/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 # auto startx
 if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
   exec startx

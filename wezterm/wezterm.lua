@@ -23,31 +23,5 @@ config.window_padding = {
 
 -- 设置tab
 config.enable_tab_bar = false
-config.use_fancy_tab_bar = false
-config.colors = {
-  tab_bar = {
-    background = '#45475a',
-    active_tab = {
-      bg_color = '#89b4fa',
-      fg_color = '#1e1e2e',
-    },
-    inactive_tab = {
-      bg_color = '#181825',
-      fg_color = '#a6adc8',
-    },
-    inactive_tab_hover = {
-      bg_color = '#313244',
-      fg_color = '#a6adc8',
-    },
-    new_tab = {
-      bg_color = '#181825',
-      fg_color = '#a6adc8',
-    },
-    new_tab_hover = {
-      bg_color = '#313244',
-      fg_color = '#a6adc8',
-    },
-  },
-}
 
 return config

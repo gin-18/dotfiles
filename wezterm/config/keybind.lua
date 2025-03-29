@@ -3,9 +3,14 @@ local act = wezterm.action
 
 local keys = {
   {
-    key = 't',
+    key = 'n',
     mods = 'ALT',
     action = act.SpawnTab('DefaultDomain'),
+  },
+  {
+    key = 't',
+    mods = 'ALT',
+    action = wezterm.action.ShowTabNavigator,
   },
 }
 
