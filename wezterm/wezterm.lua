@@ -7,6 +7,13 @@ local launch = require('config.launch')
 -- 快捷键
 config.keys = keys
 
+-- 设置字体
+config.font = wezterm.font({
+  family = 'FiraCode Nerd Font Mono',
+  style = 'Normal',
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+})
+
 -- 设置主题
 config.color_scheme = 'catppuccin-mocha'
 -- 设置默认启动程序

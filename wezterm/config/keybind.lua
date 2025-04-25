@@ -10,7 +10,7 @@ local keys = {
   {
     key = 't',
     mods = 'ALT',
-    action = wezterm.action.ShowTabNavigator,
+    action = act.ShowTabNavigator,
   },
 }
 
