@@ -22,7 +22,7 @@ config.default_prog = launch.default_prog
 config.default_cwd = launch.default_cwd
 -- 窗口内边距
 config.window_padding = {
-  left = 0,
+  left = 6,
   top = 0,
   right = 0,
   bottom = 0,
