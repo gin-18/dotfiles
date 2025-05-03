@@ -9,8 +9,8 @@ config.keys = keys
 
 -- 设置字体
 config.font = wezterm.font({
-  family = 'FiraCode Nerd Font Mono',
-  style = 'Normal',
+  family = 'FiraCode Nerd Font Propo',
+  weight = 'Regular',
   harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
 })
 
@@ -22,7 +22,7 @@ config.default_prog = launch.default_prog
 config.default_cwd = launch.default_cwd
 -- 窗口内边距
 config.window_padding = {
-  left = 6,
+  left = 7,
   top = 0,
   right = 0,
   bottom = 0,
