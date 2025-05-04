@@ -1,81 +1,76 @@
+# For defaults and description of each option, see the link bellow
+# https://github.com/dunst-project/dunst/blob/master/dunstrc
+
 [global]
-  ### Display ###
+# Display
+follow = mouse
+width = 350
+height = (0, 300)
+origin = top-right
+offset = (16, 46)
+indicate_hidden = yes
+notification_limit = 5
+gap_size = 12
+padding = 12
+horizontal_padding = 20
+frame_width = 1
+sort = no
 
-  monitor = 0
-  follow = keyboard
+# Progress bar
+progress_bar_frame_width = 0
+progress_bar_corner_radius = 3
 
-  geometry = "800x2-14+40"
-  indicate_hidden = yes
-  shrink = true
-  transparency = 0
-  notification_height = 0
-  separator_height = 2
-  padding = 16
-  horizontal_padding = 16
-  frame_width = 3
-  corner_radius = 10
+# Colors
+frame_color = "#89b4fa"
+separator_color= frame
+highlight = "#89b4fa"
 
-  separator_color = auto
-  sort = yes
-  idle_threshold = 120
+# Text
+font = FiraCode Nerd Font Propo 12
+markup = full
+format = "<small>%a</small>\n<big><b>%s</b></big>\n%b"
+alignment = left
+vertical_alignment = center
+show_age_threshold = -1
+hide_duplicate_count = false
 
-  ### Text ###
-  font = FiraCode Nerd Font Mono 12
-  line_height = 0
+# Icon
+icon_position = left
+min_icon_size = 54
+max_icon_size = 80
+icon_path = /usr/share/icons/ePapirus/48x48/status/:/usr/share/icons/ePapirus/48x48/devices/:/usr/share/icons/ePapirus/48x48/apps
+icon_corner_radius = 4
 
-  markup = full
+# Misc/Advanced
+dmenu = wofi --show drun --prompt 'Open with'
+corner_radius = 10
 
-  format = "<b>%a</b>\n%s\n%b"
-  alignment = left
-  show_age_threshold = 60
-  word_wrap = true
-  ellipsize = middle
-  ignore_newline = false
-  stack_duplicates = true
-  hide_duplicate_count = true
-  show_indicators = true
-
-  ### Icons ###
-  icon_position = left
-  max_icon_size = 128
-  icon_path = /usr/share/icons/ePapirus/48x48/status/:/usr/share/icons/ePapirus/48x48/devices/:/usr/share/icons/ePapirus/48x48/apps
-
-  ### History ###
-  sticky_history = yes
-  history_length = 20
-
-  ### Misc/Advanced ###
-  dmenu = /usr/bin/wezterm -e fzf:
-  always_run_script = false
-  title = Dunst
-  class = Dunst
-  startup_notification = true
-  force_xinerama = false
-
-  frame_color = "#89B4FA"
-  separator_color= frame
-
-[experimental]
-  per_monitor_dpi = false
-
-[dunst_icon]
-  appname = dunst
-  new_icon = /usr/share/icons/ePapirus/48x48/apps/bell.svg
-
-[shortcuts]
-  close = ctrl+space
-  close_all = ctrl+shift+space
-  history = ctrl+grave
+# Mouse
+mouse_left_click = close_current
+mouse_middle_click = do_action, close_current
+mouse_right_click = close_all
 
 [urgency_low]
-  background = "#1E1E2E"
-  foreground = "#CDD6F4"
+  background = "#1e1e2e"
+  foreground = "#cdd6f4"
+  timeout = 3
 
 [urgency_normal]
-  background = "#1E1E2E"
-  foreground = "#CDD6F4"
+  background = "#1e1e2e"
+  foreground = "#cdd6f4"
+  timeout = 8
 
 [urgency_critical]
-  background = "#1E1E2E"
-  foreground = "#CDD6F4"
-  frame_color = "#cba6f7"
+  background = "#1e1e2e"
+  foreground = "#cdd6f4"
+  frame_color = "#fab387"
+  timeout = 0
+
+
+# Rules
+[fullscreen_delay_everything]
+fullscreen = delay
+
+[fullscreen_show_critical]
+msg_urgency = critical
+fullscreen = show
