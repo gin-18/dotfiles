@@ -22,7 +22,7 @@ config.default_prog = launch.default_prog
 config.default_cwd = launch.default_cwd
 -- 窗口内边距
 config.window_padding = {
-  left = 7,
+  left = 8,
   top = 0,
   right = 0,
   bottom = 0,
@@ -30,5 +30,23 @@ config.window_padding = {
 
 -- 设置tab
 config.enable_tab_bar = false
+
+-- 渲染优化
+config.front_end = 'WebGpu' -- 使用现代渲染后端
+config.webgpu_power_preference = 'HighPerformance' -- 使用高性能模式
+
+-- 输入响应优化
+config.enable_kitty_keyboard = true -- 启用 kitty 键盘
+config.send_composed_key_when_left_alt_is_pressed = true -- 启用左 alt 键发送组合键
+
+-- 设置帧率
+config.animation_fps = 60 -- 设置动画帧率
+config.max_fps = 60 -- 设置最大帧率
+
+-- 字体渲染优化
+config.freetype_load_target = 'Light'
+
+-- 多显示器优化
+config.adjust_window_size_when_changing_font_size = false -- 避免调整字体大小时调整窗口大小
 
 return config

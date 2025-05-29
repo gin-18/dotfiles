@@ -43,7 +43,7 @@ icon_corner_radius = 4
 
 # Misc/Advanced
 dmenu = wofi --show drun --prompt 'Open with'
-corner_radius = 10
+corner_radius = 6
 
 # Mouse
 mouse_left_click = close_current
