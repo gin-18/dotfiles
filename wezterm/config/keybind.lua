@@ -12,6 +12,27 @@ local keys = {
     mods = 'ALT',
     action = act.ShowTabNavigator,
   },
+  {
+    key = 'v',
+    mods = 'ALT',
+    action = act.SplitPane({
+      direction = 'Right',
+      size = { Percent = 30 },
+    }),
+  },
+  {
+    key = 'h',
+    mods = 'ALT',
+    action = act.SplitPane({
+      direction = 'Down',
+      size = { Percent = 50 },
+    }),
+  },
+  {
+    key = 'p',
+    mods = 'ALT',
+    action = act.PaneSelect,
+  },
 }
 
 -- 切换 tab
