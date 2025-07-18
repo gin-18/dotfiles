@@ -2,6 +2,8 @@
 ZSH_THEME="catppuccin"
 CATPPUCCIN_FLAVOR="mocha"
 
+bindkey -e
+
 # setup for plugin
 source ~/.local/share/zinit/zinit.git/zinit.zsh
 source ${0:A:h}/plugins.zsh
