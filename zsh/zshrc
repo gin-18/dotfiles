@@ -10,7 +10,6 @@ source ${0:A:h}/plugins.zsh
 source ${0:A:h}/fzf.zsh
 source <(fzf --zsh)
 
-source ${0:A:h}/zsh-config.zsh
 source ${0:A:h}/aliases.zsh
 source ${0:A:h}/yazi.zsh
 source ${0:A:h}/prompt.zsh
